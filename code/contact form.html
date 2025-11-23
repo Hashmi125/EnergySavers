@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Contact | Energysaversco</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+  <style>
+    html, body {height:100%;}
+    body {
+      margin:0;
+      font-family: 'Inter', Arial, sans-serif;
+      min-height:100vh;
+      background: linear-gradient(120deg, #197fd8 0%, #84e4ff 55%, #d9f6ff 100%);
+      position:relative;
+      overflow-x: hidden;
+    }
+    .anim-grad-bg {
+      position:fixed;
+      z-index:-2; inset:0;
+      width:100vw;height:100vh;
+      background: linear-gradient(135deg,#1a91ff 0%,#18c7b3 40%,#f0f5ff 100%);
+      background-size: 200% 200%;
+      animation: gradientMove 13s ease-in-out infinite;
+    }
+    @keyframes gradientMove {
+      0% {background-position: 0% 50%;}
+      40% {background-position: 100% 51%;}
+      80% {background-position: 0% 41%;}
+      100% {background-position: 0% 50%;}
+    }
+    .contact-main {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; z-index:2;
+      padding: 64px 0 50px 0;
+    }
+    .contact-card {
+      width:100%;
+      max-width:460px;
+      background: rgba(255, 255, 255, 0.76);
+      border-radius: 28px;
+      box-shadow: 0 18px 80px #14bcf435, 0 0 0 3px #b9e9f8, 0 0 0 1.5px #13bfdd38;
+      padding: 44px 34px 36px 34px;
+      margin:auto;
+      position: relative;
+      display: flex; flex-direction: column; align-items: center;
+      backdrop-filter: blur(9px) saturate(1.3);
+      border: 1.5px solid #e2f5ff;
+      transition: box-shadow .23s;
+    }
+    .contact-card:hover { box-shadow:0 30px 120px #54e0ff56,0 0 0 3px #18c7b355;}
+    .brand-logo {
+      margin: 0 auto 17px auto;
+      display: block;
+      width: 51px; height:51px;
+      filter: drop-shadow(0 7px 17px #14c2fccb);
+    }
+    .contact-title {
+      font-size:2.12rem;
+      color:#1276c5;
+      font-weight:900;
+      text-align:center;
+      margin-bottom:9px;
+      letter-spacing:-1.3px;
+      background:linear-gradient(90deg,#166efa,#18c7b3 92%);
+      background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .contact-desc {
+      color:#205bba;text-align:center;margin-bottom:24px;
+      font-size:1.1rem;line-height:1.6;
+    }
+    .form-group {width:100%;position:relative;margin-bottom:26px;}
+    .input-icon {
+      position:absolute;left:15px;top:52%;transform:translateY(-50%);
+      width:23px;height:23px;fill:#22a7ef;opacity:.89;
+      pointer-events:none;
+    }
+    input, textarea {
+      width:100%;border-radius:13px;
+      border: none;
+      background: #f4faff;
+      box-shadow: 0 2px 19px #57dbfb13, 0 1px 0 #d2f8ffb8;
+      padding:13px 14px 13px 49px;
+      font-size: 1.09rem;
+      margin:0;box-sizing:border-box;
+      transition:box-shadow .19s, background .19s;
+      outline:none;
+      font-family:inherit;
+    }
+    input:focus, textarea:focus {
+      background:#eafdff;
+      box-shadow:0 2px 18px #24c7fd43, 0 0 0 3px #1abff5a9;
+    }
+    textarea { resize:vertical;}
+    /* Tag selection for interest */
+    .tag-select-label {
+      display: block;
+      color: #0e5fa7;
+      font-weight: 700;
+      margin: 0 0 10px 2px;
+      letter-spacing: .2px;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin: 0 0 8px 0;
+    }
+    .tag-option {
+      background: linear-gradient(95deg,#e8f9ff 60%,#fafdff 100%);
+      color: #1592b6;
+      border-radius: 27px;
+      padding: 8px 21px 8px 31px;
+      font-weight: 600;
+      box-shadow: 0 2.5px 15px #97e5fb21 inset;
+      font-size: 1.01rem;
+      position: relative;
+      border: 2px solid #eaf7ff;
+      cursor: pointer;
+      transition: background .21s, color .19s, border .19s, box-shadow .21s;
+      user-select: none;
+      min-width: 84px;
+      outline: none;
+      z-index:1;
+      display:flex;align-items:center;
+    }
+    .tag-option.selected, .tag-option:active {
+      background: linear-gradient(90deg,#166efa 61%,#18c7b3 100%);
+      color: #fff;
+      border: 2px solid #77e2f7;
+      box-shadow: 0 2.5px 14px #16dcfab7;
+      font-weight:800;
+    }
+    .tag-option .tag-checkbox {
+      position: absolute; left:11px; width:1rem;height:1rem;
+      background: none; border:1.5px solid #18c7b3; border-radius:3px;
+      transition:border .19s;display:flex;align-items:center;justify-content:center;
+    }
+    .tag-option.selected .tag-checkbox {
+      border:1.5px solid #fff;background:#18c7b3;
+    }
+    .tag-option .tag-checkbox svg {
+      display:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+    }
+    .tag-option.selected .tag-checkbox svg {
+      display:block;
+      animation:checkpop .28s cubic-bezier(.62,1.7,.33,1);
+    }
+    @keyframes checkpop {
+      0%{transform:scale(0);}
+      75%{transform:scale(1.25);}
+      100%{transform:scale(1);}
+    }
+    .form-checkbox {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.02rem;
+      margin-top: 10px;
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+    .form-checkbox input[type=checkbox] {
+      margin: 0;
+      accent-color: #166efa;
+      width: 1.25em;
+      height: 1.25em;
+      flex-shrink: 0;
+    }
+    .form-checkbox label {
+      display: inline-block;
+      color: #1a6ca7;
+      margin: 0;
+      flex: 1;
+      cursor: pointer;
+    }
+    .form-checkbox label.marketing {
+      color: #1996f1;
+    }
+    .contact-card button[type=submit] {
+      background:linear-gradient(90deg,#166efa,#1ad9e6 94%);
+      color:#fff;font-weight:800;font-size:1.17rem;padding:14px 0;width:100%;
+      border: none; border-radius:15px; box-shadow:0 3px 18px #1bc6fd3c, 0 0 0 2.5px #18c7b33c; cursor:pointer;
+      transition:background .14s,transform .16s,box-shadow .17s;margin-top:6px;text-shadow:0 1px 7px #66f1ff4a;
+      letter-spacing:.7px;
+    }
+    .contact-card button[type=submit]:hover {background:#1095bd;box-shadow:0 4px 26px #18c7b333, 0 0 0 4px #41e6fa76;}
+    .form-privacy {
+      margin-top:23px;font-size:.97rem;color:#145e78;text-align:center;background:#f4fdff;border-radius:10px;padding:11px 16px 10px 16px;
+      box-shadow:0 3px 26px #0ae5ff13 inset;
+    }
+    @media(max-width:600px){
+      .contact-card{padding: 8vw 4vw;}
+      .brand-logo{width:41px;height:41px;}
+      .contact-title{font-size:1.33rem;}
+      .tag-list{gap:7.4px;}
+      .form-checkbox {font-size:.99rem;}
+    }
+  </style>
+</head>
+<body>
+<div class="anim-grad-bg"></div>
+<div class="contact-main">
+  <form class="contact-card" autocomplete="off">
+    <!-- Replace SVG below with your SVG logo for full customization -->
+    <svg class="brand-logo" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#166efa"/><path d="M17 30v-6.5a7 7 0 0114 0V30" fill="none" stroke="#fff" stroke-width="2.7"/><circle cx="24" cy="22.2" r="2.6" fill="#fff"/></svg>
+    <div class="contact-title">Contact Us</div>
+    <div class="contact-desc">
+      Get in touch for bookings or partnership. <br>
+      <em>Your comfort, our commitment
+        <svg width="19" height="19" style="vertical-align:middle;fill:#18c7b3;margin-left:1px;" viewBox="0 0 16 16"><path d="M8,2.1A5.9,5.9,0,1,0,13.9,8,5.923,5.923,0,0,0,8,2.1Zm0,10.8A4.9,4.9,0,1,1,12.9,8,4.915,4.915,0,0,1,8,12.9Z"/><circle cx="8" cy="8" r="2.3"/></svg>
+      </em>
+    </div>
+    <div class="form-group">
+      <svg class="input-icon" viewBox="0 0 24 24"><path d="M19.8 21v-1.5A3.49 3.49 0 0 0 16.3 16H7.7A3.49 3.49 0 0 0 4.2 19.5V21"/><circle cx="12" cy="7.5" r="4" /></svg>
+      <input type="text" name="fullname" required placeholder="Full Name">
+    </div>
+    <div class="form-group">
+      <svg class="input-icon" viewBox="0 0 24 24"><path d="M3 7.78C7.5 3.28 17 3.28 21 7.78"/><rect x="2" y="9" width="20" height="12" rx="2"/><circle cx="12" cy="15" r="3"/></svg>
+      <input type="text" name="company" placeholder="Company (if business)">
+    </div>
+    <div class="form-group">
+      <svg class="input-icon" viewBox="0 0 24 24"><path d="M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M11 19h2"/></svg>
+      <input type="tel" name="phone" required placeholder="Phone Number">
+    </div>
+    <div class="form-group">
+      <svg class="input-icon" viewBox="0 0 24 24"><path d="M3 5.5L12 13 21 5.5" /><rect x="3" y="5" width="18" height="14" rx="2" /></svg>
+      <input type="email" name="email" required placeholder="Email">
+    </div>
+    <div class="form-group">
+      <span class="tag-select-label">What are you interested in?</span>
+      <div class="tag-list" id="interestTags">
+        <span class="tag-option" tabindex="0" data-value="Solar Panels & Installations">
+          <span class="tag-checkbox">
+            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
+          </span>
+          Solar Panels & Installations
+        </span>
+        <span class="tag-option" tabindex="0" data-value="Solar Battery Storage">
+          <span class="tag-checkbox">
+            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
+          </span>
+          Solar Battery Storage
+        </span>
+        <span class="tag-option" tabindex="0" data-value="Air Conditioning Upgrades">
+          <span class="tag-checkbox">
+            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
+          </span>
+          Air Conditioning Upgrades
+        </span>
+        <span class="tag-option" tabindex="0" data-value="Hot Water System">
+          <span class="tag-checkbox">
+            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
+          </span>
+          Hot Water System
+        </span>
+        <span class="tag-option" tabindex="0" data-value="Induction Cooktop">
+          <span class="tag-checkbox">
+            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
+          </span>
+          Induction Cooktop
+        </span>
+        <span class="tag-option" tabindex="0" data-value="Government Rebate/Program Info">
+          <span class="tag-checkbox">
+            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
+          </span>
+          Government Rebate / Program Info
+        </span>
+        <span class="tag-option" tabindex="0" data-value="Other / Partnership">
+          <span class="tag-checkbox">
+            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
+          </span>
+          Other / Partnership
+        </span>
+      </div>
+      <input type="hidden" name="interest" id="selectedInterests" required>
+    </div>
+    <div class="form-group">
+      <svg class="input-icon" viewBox="0 0 24 24"><path d="M4 18v-8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8"/><polyline points="7 9 12 12 17 9"/></svg>
+      <textarea name="message" required rows="4" placeholder="Your message or details..."></textarea>
+    </div>
+
+    <div class="form-checkbox">
+      <input type="checkbox" id="auth" required>
+      <label for="auth">I am an authorised contact for this company (if business).</label>
+    </div>
+    <div class="form-checkbox">
+      <input type="checkbox" id="marketing" required>
+      <label for="marketing" class="marketing">I agree to be contacted about energy-saving upgrades and government programs.</label>
+    </div>
+
+    <button type="submit">Send Message</button>
+    <div class="form-privacy">
+      <b>Privacy:</b> Your details are kept secure and only used to support your eligibility or enquiry. Unsubscribe at any time.
+    </div>
+  </form>
+</div>
+<script>
+  // Tag select UI logic
+  const tags = document.querySelectorAll('.tag-option');
+  const hiddenInput = document.getElementById('selectedInterests');
+  function updateTags() {
+    let vals = Array.from(tags).filter(t=>t.classList.contains('selected')).map(t=>t.getAttribute('data-value'));
+    hiddenInput.value = vals.join(', ');
+    hiddenInput.setCustomValidity(vals.length ? "" : "Please select at least one interest.");
+  }
+  tags.forEach(tag => {
+    tag.addEventListener('click', e=>{
+      tag.classList.toggle('selected');
+      updateTags();
+    });
+    tag.addEventListener('keydown', e=>{
+      if(['Enter',' '].includes(e.key)) { tag.classList.toggle('selected'); updateTags(); }
+    });
+  });
+  updateTags();
+  document.querySelector('form').onsubmit = e => {
+    e.preventDefault();
+    if (!hiddenInput.value) {
+      hiddenInput.setCustomValidity("Please select at least one interest.");
+      hiddenInput.reportValidity();
+      return;
+    }
+    alert("Thank you for contacting us! We’ll get back to you soon.");
+    e.target.reset();
+    tags.forEach(t=>t.classList.remove('selected'));
+    updateTags();
+  };
+</script>
+</body>
+</html>
