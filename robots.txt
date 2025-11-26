@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# point to your sitemap (replace with your real URL)
 Sitemap: https://energysaversco.com/sitemap.xml
