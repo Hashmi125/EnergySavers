@@ -6,7 +6,17 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- add more <url> entries for each page, like about, contact etc -->
-  https://energysaversco.com/
-  https://energysaversco.com/contact%20form.html
+  <url>
+    <loc>https://energysaversco.com/about</loc>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://energysaversco.com/contact%20form.html>
+    <lastmod>2025-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Add more pages as needed -->
 </urlset>
