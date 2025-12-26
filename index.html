@@ -704,21 +704,23 @@
 
       .nav-links {
         width: 100%;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
+        flex-direction: row; /* Changed to horizontal */
+        flex-wrap: wrap; /* Allow wrapping */
+        align-items: center;
+        justify-content: flex-start; /* Align links to the left */
+        gap: 10px; /* Adjusted gap for horizontal layout */
       }
 
       .nav-links a {
-        padding: 8px 0;
+        padding: 5px 8px; /* Adjusted padding for horizontal links */
         font-size: 0.9rem;
       }
 
       .nav-links .get-started {
-        width: 100%;
-        text-align: center;
-        margin-left: 0;
-        margin-top: 8px;
+        width: auto; /* Allow button to take natural width */
+        text-align: right;
+        margin-left: auto; /* Push button to the right */
+        margin-top: 0;
       }
 
       .hero-info {
@@ -795,17 +797,19 @@
 
       .nav-links {
         gap: 6px;
+        justify-content: space-between; /* Use space-between to push button to the right */
       }
 
       .nav-links a {
-        padding: 6px 0;
+        padding: 5px 4px; /* Adjusted padding for smaller screens */
         font-size: 0.8rem;
-        margin: 0 4px;
+        margin: 0;
       }
 
       .nav-links .get-started {
         padding: 8px 14px;
         font-size: 0.8rem;
+        margin-left: auto; /* Ensure it's pushed right */
       }
 
       .animated-hero {
