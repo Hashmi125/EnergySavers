@@ -103,12 +103,6 @@
     .nav-links a {margin:0 12px;color:var(--neutral);text-decoration:none;font-weight:600;position:relative;padding:5px 0;}
     .nav-links a:hover,.nav-links a.active {color:var(--cta);}
     .nav-links .get-started{background:var(--cta);color:#fff;padding:10px 22px;border-radius:8px;margin-left:15px;box-shadow:0 2px 12px 0 #0059f74c;font-size:1rem;}
-    /* Mobile Menu Toggle */
-    .menu-toggle {display: none; cursor: pointer; font-size: 2rem; color: var(--cta); line-height: 1; z-index: 11;}
-    .nav-links.open {display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255,255,255,0.99); box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 10px 0; border-top: 1px solid #eee;}
-    .nav-links.open a {padding: 12px 34px; margin: 0; border-bottom: 1px solid #f7f7f7;}
-    .nav-links.open .get-started {margin: 10px 34px 0 34px; text-align: center;}
-
     footer{background:#123869;color:#e7eae9;padding:34px 0 15px 0;margin-top:54px;}
     .footer-cols{display:flex;flex-wrap:wrap;gap:36px;max-width:1100px;margin:auto;padding:0 30px;}
     .footer-cols>div{flex:1;}
@@ -118,8 +112,6 @@
     .footer-social{margin-top:14px;}
     .footer-social a{color:var(--accent);margin-right:12px;font-size:1.35rem;}
     .copyright{text-align:center;margin-top:16px;color:#b6c5d8;}
-
-    /* Existing Media Queries */
     @media(max-width:1200px){.navbar,.animated-hero,.container{max-width:99vw;}}
     @media(max-width:900px){
       .navbar{flex-direction:column;align-items:flex-start;gap:16px;}
@@ -127,62 +119,6 @@
       .counters,.footer-cols{flex-direction:column;align-items:center;}
       .footer-cols>div{max-width:310px;}
       .product-card.expanded {width:95vw;}
-    }
-
-    /* New Mobile-Specific Media Query */
-    @media(max-width:768px){
-      .navbar {padding: 15px 18px; flex-direction: row; align-items: center; justify-content: space-between;}
-      .nav-links {display: none;}
-      .menu-toggle {display: block;}
-      .hero-info h1 {font-size: 1.8rem; margin-bottom: 18px;}
-      .hero-info p {font-size: 1rem; margin-bottom: 24px;}
-      .hero-info .cta-btn {padding: 12px 24px; font-size: 1rem;}
-      .section-title {font-size: 1.6rem; margin-bottom: 30px;}
-      section {padding: 40px 0 20px 0;}
-      .counters {gap: 20px; flex-wrap: wrap;}
-      .counter-box {width: 45%; min-width: 140px; padding: 15px 0;}
-      .counter {font-size: 1.8rem;}
-      .counter-label {font-size: 0.9rem;}
-      .product-grid {gap: 20px;}
-      .product-card {width: 100%; max-width: 350px; min-height: auto; padding: 18px 12px 20px;}
-      .product-card:hover {transform: none; box-shadow: 0 4px 18px 0 #0059f74a;} /* Disable hover scale on mobile */
-      .product-card.expanded {width: 90vw; min-height: auto; transform: none;}
-      .testimonial-slider {padding-bottom: 15px;}
-      .testimonial {min-width: 85vw; max-width: 90vw;}
-      .blog-grid {gap: 15px;}
-      .blog-card {width: 45%; min-width: 150px; padding: 12px 10px;}
-      .footer-cols {padding: 0 18px; flex-direction: column; gap: 20px;}
-      .footer-cols>div {max-width: 100%; text-align: center;}
-      .footer-links a {display: inline-block; margin: 0 8px 8px 8px;}
-      .footer-title {margin-bottom: 12px;}
-    }
-    @media(max-width:480px){
-      .hero-info {padding: 30px 15px 20px 15px;}
-      .hero-info h1 {font-size: 1.5rem;}
-      .hero-info p {font-size: 0.9rem;}
-      .counter-box {width: 100%;}
-      .blog-card {width: 100%; max-width: 300px;}
-    }
-    /* Scroll to Top Button */
-    #scrollToTopBtn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      border: none;
-      outline: none;
-      background-color: var(--cta);
-      color: white;
-      cursor: pointer;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 18px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s, opacity 0.3s;
-    }
-    #scrollToTopBtn:hover {
-      background-color: var(--accent);
     }
   </style>
 </head>
@@ -197,8 +133,7 @@
 <header>
   <nav class="navbar">
     <span class="logo">Energysaversco</span>
-    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-    <div class="nav-links" id="nav-links">
+    <div class="nav-links">
       <a href="#hero" class="active">Home</a>
       <a href="#solutions">Solutions</a>
       <a href="#products">Products</a>
@@ -251,77 +186,57 @@
     <div class="section-title">All-in-One <span>Energy Solutions</span></div>
     <div class="product-grid" id="energy-products">
       <div class="product-card" data-title="Battery Storage" data-details="• Lithium-ion, scalable for residential/commercial<br>• Reliable backup during outages.<br>• Connects to solar for maximal savings.">
-        <img src="assets/images/ss" alt="Image">
+        <img src="../images/WhatsApp%20Image%202025-11-03%20at%204.07.07%20PM.jpeg" alt="Image">
         <div class="product-title">Battery Storage</div>
         <div class="product-desc">High-capacity energy storage for homes and commercial buildings.</div>
         <div class="expand-details"></div>
       </div>
       <div class="product-card" data-title="Multi-Split AC Systems" data-details="• Multi-room flexibility<br>• Inverter driven for energy savings<br>• Whisper-quiet, easy maintenance.">
-        <img src="assets/images/multi split.jpeg" alt="Multi Split">
+        <img src="../images/multi split.jpeg" alt="Multi Split">
         <div class="product-title">Multi-Split AC Systems</div>
         <div class="product-desc">Efficient multi-zone cooling with inverter technology.</div>
         <div class="expand-details"></div>
       </div>
       <div class="product-card" data-title="Solar Battery Inverters" data-details="• Seamlessly switches power sources<br>• Supports blackout protection<br>• 10-year warranty.">
-        <img src="assets/images/battery.jpg.png" alt="Battery Image">
+        <img src="../images/battery.jpg.png" alt="Battery Image">
         <div class="product-title">Solar Battery Inverters</div>
         <div class="product-desc">Reliable inverters for seamless solar integration.</div>
         <div class="expand-details"></div>
       </div>
       <div class="product-card" data-title="Heat Pump" data-details="• Uses renewable air energy to heat water<br>• Massive bill savings<br>• Government rebates and quick install.">
-        <img src="assets/images/heat_pump.jpeg" alt="Heat Pump">
+        <img src="../images/heat_pump.jpeg" alt="Heat Pump">
         <div class="product-title">Heat Pump</div>
         <div class="product-desc">High-efficiency water heating technology.</div>
         <div class="expand-details"></div>
       </div>
       <div class="product-card" data-title="Ducted Air Conditioning" data-details="• Whole-home comfort<br>• Powerful, discreet, Wi-Fi ready<br>• Control multiple rooms at once.">
-        <img src="assets/images/Ducted-Air-Conditioning-System.jpg" alt="Ducted Air Conditioning System">
+        <img src="../images/Ducted-Air-Conditioning-System.jpg" alt="Ducted Air Conditioning System">
         <div class="product-title">Ducted Air Conditioning</div>
         <div class="product-desc">Reliable ducted AC for Australian homes and offices.</div>
         <div class="expand-details"></div>
       </div>
       <div class="product-card" data-title="Single Split AC" data-details="• Perfect for single rooms or offices<br>• Smart control ready, quick install.">
-        <img src="assets/images/single_split.jpeg" alt="Single Split">
+        <img src="../images/single_split.jpeg" alt="Single Split">
         <div class="product-title">Single Split AC</div>
         <div class="product-desc">Energy-saving cooling for single rooms.</div>
         <div class="expand-details"></div>
       </div>
       <div class="product-card" data-title="Room AC" data-details="• Portable, flexible<br>• For rentals and small spaces.">
-        <img src="assets/images/room_ac.jpeg" alt="Room AC">
+        <img src="../images/room_ac.jpeg" alt="Room AC">
         <div class="product-title">Room AC</div>
         <div class="product-desc">Efficient performance for personal spaces.</div>
         <div class="expand-details"></div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- Commercial Lighting + More (with expandable cards) -->
-<section class="animate-section" id="products">
-  <div class="container">
-    <div class="section-title">Commercial Lighting + More</div>
-    <div class="product-grid" id="lighting-products">
-      <div class="product-card" data-title="LED Battens & Tubes" data-details="• Instant-on, flicker-free<br>• Massive energy reduction<br>• Ideal for offices, shops, car parks.">
-        <img src="assets/images/led battens & tubes.png" alt="LED Battens & Tubes">
-        <div class="product-title">LED Battens & Tubes</div>
-        <div class="product-desc">Indoor lighting, long lifespan, high efficiency.</div>
+	  <div class="product-card" data-title="Door Seals" data-details="• high-quality, professionally installed door seals<br>•  significantly improving insulation and saving energy costs.">
+        <img src="../images/room_ac.jpeg" alt="Door Seals">
+        <div class="product-title">Door Seals</div>
+        <div class="product-desc">Keeps your home warmer in winter and cooler in summer.</div>
         <div class="expand-details"></div>
       </div>
-      <div class="product-card" data-title="LED Panels" data-details="• Ultra-slim, low-glare<br>• Tri-colour & dimmable<br>• For commercial ceilings.">
-        <img src="assets/images/LED Panels.png" alt="LED Panels">
-        <div class="product-title">LED Panels</div>
-        <div class="product-desc">Tri-colour, sensor-rich, remote adjustable.</div>
-        <div class="expand-details"></div>
-      </div>
-      <div class="product-card" data-title="Storm Area Light" data-details="• IP66 outdoor<br>• Shock/weather resistant<br>• Replaces 250-1000W metal halide.">
-        <img src="assets/images/Strom-Area-Light.png" alt="Strom Area Light">
-        <div class="product-title">Storm Area Light</div>
-        <div class="product-desc">IP66 outdoor lighting for harsh conditions.</div>
-        <div class="expand-details"></div>
-      </div>
-      <div class="product-card" data-title="Velocity LED Flood Light" data-details="• Reliable, high-power<br>• Modular for large car parks/facades.">
-        <img src="assets/images/LED Floodlights.png" alt="LED Floodlights">
-        <div class="product-title">Velocity LED Flood Light</div>
-        <div class="product-desc">Commercial grade, high-output flood lighting.</div>
+	  <div class="product-card" data-title="Shower Heads" data-details="• Portable, high quality<br>• enjoy lower water bills and a stylish bathroom upgrade.">
+        <img src="../images/room_ac.jpeg" alt="Shower Heads">
+        <div class="product-title">Shower Heads</div>
+        <div class="product-desc"> You can make a real difference in your water use and reduce energy costs.</div>
         <div class="expand-details"></div>
       </div>
     </div>
@@ -331,10 +246,10 @@
   <div class="container">
     <div class="section-title">Recent Projects</div>
     <div class="product-grid">
-      <div class="product-card"><img src="assets/images/generated-image.png" alt="Generated Image"><div class="product-title">Modern Villa Solar Upgrade</div><div class="product-desc">8kW rooftop solar & Powerwall for energy independence in Toorak.</div></div>
-      <div class="product-card"><img src="assets/images/warehouse_led_layout.png" alt="Warehouse LED Layout"><div class="product-title">Warehouse LED Retrofit</div><div class="product-desc">1200sqm logistics warehouse now LED, Melbourne CBD.</div></div>
-      <div class="product-card"><img src="assets/images/generated-imagee.png" alt="Generated Image"><div class="product-title">Regional Farm Battery Backup</div><div class="product-desc">20kWh battery & off-grid solar for irrigation in Shepparton.</div></div>
-      <div class="product-card"><img src="assets/images/ggenerated-image.png" alt="Generated Image"><div class="product-title">Apartment Complex Heat Pump</div><div class="product-desc">12 heat pumps = high-rise energy savings in Southbank.</div></div>
+      <div class="product-card"><img src="../images/generated-image.png" alt="Generated Image"><div class="product-title">Modern Villa Solar Upgrade</div><div class="product-desc">8kW rooftop solar & Powerwall for energy independence in Toorak.</div></div>
+      <div class="product-card"><img src="../images/warehouse_led_layout.png" alt="Warehouse LED Layout"><div class="product-title">Warehouse LED Retrofit</div><div class="product-desc">1200sqm logistics warehouse now LED, Melbourne CBD.</div></div>
+      <div class="product-card"><img src="../images/generated-imagee.png" alt="Generated Image"><div class="product-title">Regional Farm Battery Backup</div><div class="product-desc">20kWh battery & off-grid solar for irrigation in Shepparton.</div></div>
+      <div class="product-card"><img src="../images/ggenerated-image.png" alt="Generated Image"><div class="product-title">Apartment Complex Heat Pump</div><div class="product-desc">12 heat pumps = high-rise energy savings in Southbank.</div></div>
     </div>
   </div>
 </section>
@@ -456,9 +371,9 @@
     }
     step();
   }
-  animateCounter('completed', 1250);
+  animateCounter('completed', 75 );
   animateCounter('inwork', 30);
-  animateCounter('upcoming', 115);
+  animateCounter('upcoming', 15);
   function setupExpandableCards(selector) {
     const grid = document.getElementById(selector);
     let openCard = null;
@@ -491,7 +406,7 @@
     });
   }
   setupExpandableCards('energy-products');
-  setupExpandableCards('lighting-products');
+
   window.addEventListener('scroll', () => {
     const sections = ['hero','solutions','products','projects','blogs','testimonials','whatwedo','about'];
     let i = 0, top = window.scrollY + 90;
@@ -502,20 +417,6 @@
     document.querySelectorAll('.nav-links a').forEach((a,j)=>a.classList.toggle('active',j===i));
   });
   document.addEventListener('DOMContentLoaded', function(){
-    // Mobile Menu Toggle Logic
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navLinks.classList.contains('open')) {
-          navLinks.classList.remove('open');
-        }
-      });
-    });
-
     function revealSections(){
       document.querySelectorAll('.animate-section').forEach(function(sec){
         var rect = sec.getBoundingClientRect();
@@ -534,23 +435,6 @@
     }
     window.addEventListener('scroll', revealSections, {passive:true});
     revealSections();
-    // Scroll to Top Logic
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        scrollToTopBtn.style.display = "block";
-      } else {
-        scrollToTopBtn.style.display = "none";
-      }
-    }
-
-    function scrollToTop() {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-    window.scrollToTop = scrollToTop; // Expose to global scope for onclick
-
     // SVG particles/halo effect in hero
     const canvas = document.querySelector('.hero-particles');
     if(canvas){
@@ -579,9 +463,5 @@
     }
   });
 </script>
-  <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">&#9650;</button>
 </body>
 </html>
-
-
-
