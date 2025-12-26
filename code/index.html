@@ -103,12 +103,6 @@
     .nav-links a {margin:0 12px;color:var(--neutral);text-decoration:none;font-weight:600;position:relative;padding:5px 0;}
     .nav-links a:hover,.nav-links a.active {color:var(--cta);}
     .nav-links .get-started{background:var(--cta);color:#fff;padding:10px 22px;border-radius:8px;margin-left:15px;box-shadow:0 2px 12px 0 #0059f74c;font-size:1rem;}
-    /* Mobile Menu Toggle */
-    .menu-toggle {display: none; cursor: pointer; font-size: 2rem; color: var(--cta); line-height: 1; z-index: 11;}
-    .nav-links.open {display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: rgba(255,255,255,0.99); box-shadow: 0 4px 8px rgba(0,0,0,0.1); padding: 10px 0; border-top: 1px solid #eee;}
-    .nav-links.open a {padding: 12px 34px; margin: 0; border-bottom: 1px solid #f7f7f7;}
-    .nav-links.open .get-started {margin: 10px 34px 0 34px; text-align: center;}
-
     footer{background:#123869;color:#e7eae9;padding:34px 0 15px 0;margin-top:54px;}
     .footer-cols{display:flex;flex-wrap:wrap;gap:36px;max-width:1100px;margin:auto;padding:0 30px;}
     .footer-cols>div{flex:1;}
@@ -118,8 +112,6 @@
     .footer-social{margin-top:14px;}
     .footer-social a{color:var(--accent);margin-right:12px;font-size:1.35rem;}
     .copyright{text-align:center;margin-top:16px;color:#b6c5d8;}
-
-    /* Existing Media Queries */
     @media(max-width:1200px){.navbar,.animated-hero,.container{max-width:99vw;}}
     @media(max-width:900px){
       .navbar{flex-direction:column;align-items:flex-start;gap:16px;}
@@ -127,62 +119,6 @@
       .counters,.footer-cols{flex-direction:column;align-items:center;}
       .footer-cols>div{max-width:310px;}
       .product-card.expanded {width:95vw;}
-    }
-
-    /* New Mobile-Specific Media Query */
-    @media(max-width:768px){
-      .navbar {padding: 15px 18px; flex-direction: row; align-items: center; justify-content: space-between;}
-      .nav-links {display: none;}
-      .menu-toggle {display: block;}
-      .hero-info h1 {font-size: 1.8rem; margin-bottom: 18px;}
-      .hero-info p {font-size: 1rem; margin-bottom: 24px;}
-      .hero-info .cta-btn {padding: 12px 24px; font-size: 1rem;}
-      .section-title {font-size: 1.6rem; margin-bottom: 30px;}
-      section {padding: 40px 0 20px 0;}
-      .counters {gap: 20px; flex-wrap: wrap;}
-      .counter-box {width: 45%; min-width: 140px; padding: 15px 0;}
-      .counter {font-size: 1.8rem;}
-      .counter-label {font-size: 0.9rem;}
-      .product-grid {gap: 20px;}
-      .product-card {width: 100%; max-width: 350px; min-height: auto; padding: 18px 12px 20px;}
-      .product-card:hover {transform: none; box-shadow: 0 4px 18px 0 #0059f74a;} /* Disable hover scale on mobile */
-      .product-card.expanded {width: 90vw; min-height: auto; transform: none;}
-      .testimonial-slider {padding-bottom: 15px;}
-      .testimonial {min-width: 85vw; max-width: 90vw;}
-      .blog-grid {gap: 15px;}
-      .blog-card {width: 45%; min-width: 150px; padding: 12px 10px;}
-      .footer-cols {padding: 0 18px; flex-direction: column; gap: 20px;}
-      .footer-cols>div {max-width: 100%; text-align: center;}
-      .footer-links a {display: inline-block; margin: 0 8px 8px 8px;}
-      .footer-title {margin-bottom: 12px;}
-    }
-    @media(max-width:480px){
-      .hero-info {padding: 30px 15px 20px 15px;}
-      .hero-info h1 {font-size: 1.5rem;}
-      .hero-info p {font-size: 0.9rem;}
-      .counter-box {width: 100%;}
-      .blog-card {width: 100%; max-width: 300px;}
-    }
-    /* Scroll to Top Button */
-    #scrollToTopBtn {
-      display: none;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99;
-      border: none;
-      outline: none;
-      background-color: var(--cta);
-      color: white;
-      cursor: pointer;
-      padding: 15px;
-      border-radius: 50%;
-      font-size: 18px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s, opacity 0.3s;
-    }
-    #scrollToTopBtn:hover {
-      background-color: var(--accent);
     }
   </style>
 </head>
@@ -197,8 +133,7 @@
 <header>
   <nav class="navbar">
     <span class="logo">Energysaversco</span>
-    <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-    <div class="nav-links" id="nav-links">
+    <div class="nav-links">
       <a href="#hero" class="active">Home</a>
       <a href="#solutions">Solutions</a>
       <a href="#products">Products</a>
@@ -292,36 +227,16 @@
         <div class="product-desc">Efficient performance for personal spaces.</div>
         <div class="expand-details"></div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- Commercial Lighting + More (with expandable cards) -->
-<section class="animate-section" id="products">
-  <div class="container">
-    <div class="section-title">Commercial Lighting + More</div>
-    <div class="product-grid" id="lighting-products">
-      <div class="product-card" data-title="LED Battens & Tubes" data-details="• Instant-on, flicker-free<br>• Massive energy reduction<br>• Ideal for offices, shops, car parks.">
-        <img src="../images/led%20battens%20%26%20tubes.png" alt="LED Battens & Tubes">
-        <div class="product-title">LED Battens & Tubes</div>
-        <div class="product-desc">Indoor lighting, long lifespan, high efficiency.</div>
+	  <div class="product-card" data-title="Door Seals" data-details="• high-quality, professionally installed door seals<br>•  significantly improving insulation and saving energy costs.">
+        <img src="../images/room_ac.jpeg" alt="Door Seals">
+        <div class="product-title">Door Seals</div>
+        <div class="product-desc">Keeps your home warmer in winter and cooler in summer.</div>
         <div class="expand-details"></div>
       </div>
-      <div class="product-card" data-title="LED Panels" data-details="• Ultra-slim, low-glare<br>• Tri-colour & dimmable<br>• For commercial ceilings.">
-        <img src="../images/LED Panels.png" alt="LED Panels">
-        <div class="product-title">LED Panels</div>
-        <div class="product-desc">Tri-colour, sensor-rich, remote adjustable.</div>
-        <div class="expand-details"></div>
-      </div>
-      <div class="product-card" data-title="Storm Area Light" data-details="• IP66 outdoor<br>• Shock/weather resistant<br>• Replaces 250-1000W metal halide.">
-        <img src="../images/Strom-Area-Light.png" alt="Strom Area Light">
-        <div class="product-title">Storm Area Light</div>
-        <div class="product-desc">IP66 outdoor lighting for harsh conditions.</div>
-        <div class="expand-details"></div>
-      </div>
-      <div class="product-card" data-title="Velocity LED Flood Light" data-details="• Reliable, high-power<br>• Modular for large car parks/facades.">
-        <img src="../images/LED%20Floodlights.png" alt="LED Floodlights">
-        <div class="product-title">Velocity LED Flood Light</div>
-        <div class="product-desc">Commercial grade, high-output flood lighting.</div>
+	  <div class="product-card" data-title="Shower Heads" data-details="• Portable, high quality<br>• enjoy lower water bills and a stylish bathroom upgrade.">
+        <img src="../images/room_ac.jpeg" alt="Shower Heads">
+        <div class="product-title">Shower Heads</div>
+        <div class="product-desc"> You can make a real difference in your water use and reduce energy costs.</div>
         <div class="expand-details"></div>
       </div>
     </div>
@@ -456,7 +371,7 @@
     }
     step();
   }
-  animateCounter('completed', 125);
+  animateCounter('completed', 75);
   animateCounter('inwork', 30);
   animateCounter('upcoming', 15);
   function setupExpandableCards(selector) {
@@ -491,7 +406,7 @@
     });
   }
   setupExpandableCards('energy-products');
-  setupExpandableCards('lighting-products');
+
   window.addEventListener('scroll', () => {
     const sections = ['hero','solutions','products','projects','blogs','testimonials','whatwedo','about'];
     let i = 0, top = window.scrollY + 90;
@@ -502,20 +417,6 @@
     document.querySelectorAll('.nav-links a').forEach((a,j)=>a.classList.toggle('active',j===i));
   });
   document.addEventListener('DOMContentLoaded', function(){
-    // Mobile Menu Toggle Logic
-    const menuToggle = document.getElementById('menu-toggle');
-    const navLinks = document.getElementById('nav-links');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('open');
-    });
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (navLinks.classList.contains('open')) {
-          navLinks.classList.remove('open');
-        }
-      });
-    });
-
     function revealSections(){
       document.querySelectorAll('.animate-section').forEach(function(sec){
         var rect = sec.getBoundingClientRect();
@@ -534,23 +435,6 @@
     }
     window.addEventListener('scroll', revealSections, {passive:true});
     revealSections();
-    // Scroll to Top Logic
-    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        scrollToTopBtn.style.display = "block";
-      } else {
-        scrollToTopBtn.style.display = "none";
-      }
-    }
-
-    function scrollToTop() {
-      window.scrollTo({top: 0, behavior: 'smooth'});
-    }
-    window.scrollToTop = scrollToTop; // Expose to global scope for onclick
-
     // SVG particles/halo effect in hero
     const canvas = document.querySelector('.hero-particles');
     if(canvas){
@@ -579,6 +463,5 @@
     }
   });
 </script>
-  <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">&#9650;</button>
 </body>
 </html>
