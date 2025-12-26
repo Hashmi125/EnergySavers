@@ -114,11 +114,15 @@
     .copyright{text-align:center;margin-top:16px;color:#b6c5d8;}
     @media(max-width:1200px){.navbar,.animated-hero,.container{max-width:99vw;}}
     @media(max-width:900px){
+      .nav-links{display:flex;flex-direction:column;align-items:flex-start;}
+      .nav-links a{margin:5px 0;}
       .navbar{flex-direction:column;align-items:flex-start;gap:16px;}
       .hero-info{padding:24px 10px;}
       .counters,.footer-cols{flex-direction:column;align-items:center;}
       .footer-cols>div{max-width:310px;}
       .product-card.expanded {width:95vw;}
+      .product-card {width:90vw; max-width:320px;}
+      .blog-card {width:90vw; max-width:320px;}
     }
   </style>
 </head>
@@ -371,7 +375,7 @@
     }
     step();
   }
-  animateCounter('completed', 75 );
+  animateCounter('completed', 75);
   animateCounter('inwork', 30);
   animateCounter('upcoming', 15);
   function setupExpandableCards(selector) {
