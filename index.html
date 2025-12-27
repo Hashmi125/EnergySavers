@@ -40,6 +40,10 @@
       background-attachment: fixed;
     }
 
+    body.modal-open {
+      overflow: hidden;
+    }
+
     /* ========== BACKGROUND BUBBLES ========== */
     .bubbles-bg {
       pointer-events: none;
@@ -62,69 +66,34 @@
       mix-blend-mode: lighten;
     }
 
-    .bubble1 {
-      width: 120px;
-      height: 140px;
-      left: 10vw;
-      top: 66vh;
-      background: var(--bubble2);
-      animation-duration: 21s;
-      animation-delay: -6s;
-    }
-
-    .bubble2 {
-      width: 200px;
-      height: 200px;
-      left: 65vw;
-      top: 87vh;
-      background: var(--bubble4);
-      animation-duration: 25s;
-      animation-delay: 0s;
-    }
-
-    .bubble3 {
-      width: 130px;
-      height: 80px;
-      left: 80vw;
-      top: 14vh;
-      background: var(--bubble3);
-      animation-duration: 15s;
-      animation-delay: -3s;
-    }
-
-    .bubble4 {
-      width: 78px;
-      height: 140px;
-      left: 33vw;
-      top: 18vh;
-      background: var(--bubble1);
-      animation-duration: 18s;
-      animation-delay: -5s;
-    }
-
-    .bubble5 {
-      width: 180px;
-      height: 140px;
-      left: 59vw;
-      top: 44vh;
-      background: var(--bubble2);
-      animation-duration: 26s;
-      animation-delay: -8s;
-    }
+    .bubble1 { width: 120px; height: 140px; left: 10vw; top: 66vh; background: var(--bubble2); animation-duration: 21s; animation-delay: -6s; }
+    .bubble2 { width: 200px; height: 200px; left: 65vw; top: 87vh; background: var(--bubble4); animation-duration: 25s; animation-delay: 0s; }
+    .bubble3 { width: 130px; height: 80px; left: 80vw; top: 14vh; background: var(--bubble3); animation-duration: 15s; animation-delay: -3s; }
+    .bubble4 { width: 78px; height: 140px; left: 33vw; top: 18vh; background: var(--bubble1); animation-duration: 18s; animation-delay: -5s; }
+    .bubble5 { width: 180px; height: 140px; left: 59vw; top: 44vh; background: var(--bubble2); animation-duration: 26s; animation-delay: -8s; }
 
     @keyframes blobfloat {
-      0% {
-        transform: translateY(9px) scale(1);
-      }
-      47% {
-        filter: blur(7px);
-      }
-      56% {
-        transform: translateY(-35px) scale(1.17);
-      }
-      100% {
-        transform: translateY(-80px) scale(0.96);
-      }
+      0% { transform: translateY(9px) scale(1); }
+      47% { filter: blur(7px); }
+      56% { transform: translateY(-35px) scale(1.17); }
+      100% { transform: translateY(-80px) scale(0.96); }
+    }
+
+    /* ========== MODAL BACKDROP ========== */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      backdrop-filter: blur(3px);
+    }
+    
+    .modal-backdrop.active {
+      display: block;
     }
 
     /* ========== HEADER & NAVIGATION ========== */
@@ -391,6 +360,8 @@
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
+      cursor: pointer;
+      position: relative;
     }
 
     .product-card img {
@@ -406,59 +377,67 @@
       display: none;
     }
 
+    /* FIXED EXPANSION: NO BLUR ON CARD */
     .product-card.expanded {
-      z-index: 50;
+      z-index: 1001;
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%) !important;
       width: 90vw;
-      max-width: 370px;
+      max-width: 450px;
       min-height: auto;
-      background: #fafdff;
-      box-shadow: 0 8px 48px #219af453, 0 0 0 13px #54e6e670, 0 0 70px #00c5a964;
-      padding: 30px 20px;
-      max-height: 80vh;
+      background: #ffffff;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 40px 25px;
+      max-height: 85vh;
       overflow-y: auto;
+      cursor: default;
+      filter: none !important;
+      backdrop-filter: none !important;
     }
 
     .product-card.expanded img {
-      height: 160px;
-      max-width: 98%;
+      height: 180px;
+      max-width: 100%;
     }
 
     .product-card.expanded .expand-details {
       display: block;
-      padding: 15px 3px 0 3px;
+      padding: 20px 0 0 0;
       font-size: 1rem;
       color: #226085;
       border-top: 1px solid #ebedf5;
-      margin-top: 9px;
+      margin-top: 15px;
       text-align: left;
     }
 
     .product-card.expanded .close-btn {
       position: absolute;
-      top: 18px;
-      right: 18px;
-      font-size: 2rem;
+      top: 15px;
+      right: 15px;
+      width: 32px;
+      height: 32px;
+      font-size: 1.5rem;
       cursor: pointer;
-      color: var(--primary);
-      background: transparent;
+      color: #666;
+      background: #f0f0f0;
       border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      transition: background 0.2s;
     }
 
-    .product-card.expanded .product-title {
-      font-size: 1.2rem;
+    .product-card.expanded .close-btn:hover {
+      background: #e0e0e0;
     }
 
-    .product-card.expanded ~ .product-card {
-      filter: blur(2px) grayscale(0.12) opacity(0.58);
-    }
-
-    .product-card:hover {
+    .product-card:hover:not(.expanded) {
       box-shadow: 0 20px 56px #227fff29, 0 0 0 9px #18c7b342;
-      transform: translateY(-7px) scale(1.08);
+      transform: translateY(-7px) scale(1.05);
     }
 
     .product-title {
@@ -472,7 +451,6 @@
       font-size: 0.95rem;
       color: #527193;
       min-height: 40px;
-      flex-grow: 1;
       margin: 0;
     }
 
@@ -526,14 +504,8 @@
     }
 
     @keyframes testimonialFadeIn {
-      0% {
-        opacity: 0;
-        transform: translateX(-40px) scale(0.96);
-      }
-      100% {
-        opacity: 1;
-        transform: none;
-      }
+      0% { opacity: 0; transform: translateX(-40px) scale(0.96); }
+      100% { opacity: 1; transform: none; }
     }
 
     .testimonial .user {
@@ -567,8 +539,7 @@
       line-height: 1.5;
     }
 
-    .testimonial:hover,
-    .testimonial.active {
+    .testimonial:hover {
       box-shadow: 0 9px 38px #18c7b333, 0 0 0 7px #21d89844;
       border-left: 7px solid var(--accent);
       border-right: 2.5px solid #21d898;
@@ -576,26 +547,11 @@
     }
 
     @keyframes reviewPulse {
-      0% {
-        border-left-color: var(--cta);
-        border-right-color: #f4f8ff;
-      }
-      25% {
-        border-left-color: var(--accent);
-        border-right-color: #18c7b3;
-      }
-      50% {
-        border-left-color: var(--accent);
-        border-right-color: var(--primary);
-      }
-      75% {
-        border-left-color: var(--primary);
-        border-right-color: var(--accent);
-      }
-      100% {
-        border-left-color: var(--cta);
-        border-right-color: #f4f8ff;
-      }
+      0% { border-left-color: var(--cta); border-right-color: #f4f8ff; }
+      25% { border-left-color: var(--accent); border-right-color: #18c7b3; }
+      50% { border-left-color: var(--accent); border-right-color: var(--primary); }
+      75% { border-left-color: var(--primary); border-right-color: var(--accent); }
+      100% { border-left-color: var(--cta); border-right-color: #f4f8ff; }
     }
 
     /* ========== BLOG GRID & CARDS ========== */
@@ -650,11 +606,6 @@
       width: 100%;
     }
 
-    .footer-cols > div {
-      flex: 1;
-      min-width: 200px;
-    }
-
     .footer-title {
       font-weight: 700;
       margin-bottom: 12px;
@@ -693,343 +644,35 @@
       font-size: 0.9rem;
     }
 
-    /* ========== MEDIA QUERIES - TABLET (768px) ========== */
+    /* ========== MEDIA QUERIES ========== */
     @media (max-width: 768px) {
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 16px 20px;
-      }
-
-      .nav-links {
-        width: 100%;
-        flex-direction: row; /* Changed to horizontal */
-        flex-wrap: wrap; /* Allow wrapping */
-        align-items: center;
-        justify-content: flex-start; /* Align links to the left */
-        gap: 10px; /* Adjusted gap for horizontal layout */
-      }
-
-      .nav-links a {
-        padding: 5px 8px; /* Adjusted padding for horizontal links */
-        font-size: 0.9rem;
-      }
-
-      .nav-links .get-started {
-        width: auto; /* Allow button to take natural width */
-        text-align: right;
-        margin-left: auto; /* Push button to the right */
-        margin-top: 0;
-      }
-
-      .hero-info {
-        padding: 32px 20px;
-        margin: 0 20px;
-      }
-
-      .hero-info h1 {
-        font-size: 1.6rem;
-        margin-bottom: 16px;
-      }
-
-      .hero-info p {
-        font-size: 0.95rem;
-        margin-bottom: 20px;
-      }
-
-      .section-title {
-        font-size: 1.5rem;
-        margin-bottom: 32px;
-      }
-
-      .product-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-      }
-
-      .blog-grid {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 16px;
-      }
-
-      .counters {
-        gap: 16px;
-      }
-
-      .counter-box {
-        width: 140px;
-        padding: 18px 12px;
-      }
-
-      .counter {
-        font-size: 1.5rem;
-      }
-
-      .counter-label {
-        font-size: 0.85rem;
-      }
-
-      .testimonial {
-        min-width: 250px;
-        max-width: 280px;
-        padding: 18px 16px;
-      }
-
-      section {
-        padding: 50px 0 28px 0;
-      }
+      .navbar { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 20px; }
+      .nav-links { width: 100%; flex-direction: column; align-items: flex-start; gap: 8px; }
+      .nav-links a { padding: 8px 0; font-size: 0.9rem; }
+      .nav-links .get-started { width: 100%; text-align: center; margin-left: 0; margin-top: 8px; }
+      .hero-info { padding: 32px 20px; margin: 0 20px; }
+      .hero-info h1 { font-size: 1.6rem; }
+      .section-title { font-size: 1.5rem; }
+      .product-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+      .blog-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
+      .counters { gap: 16px; }
+      .counter-box { width: 140px; padding: 18px 12px; }
+      .counter { font-size: 1.5rem; }
+      .testimonial { min-width: 250px; max-width: 280px; }
+      section { padding: 50px 0 28px 0; }
     }
 
-    /* ========== MEDIA QUERIES - MOBILE (480px) ========== */
     @media (max-width: 480px) {
-      body {
-        background-attachment: scroll;
-      }
-
-      .navbar {
-        padding: 12px 16px;
-      }
-
-      .logo {
-        font-size: 1.3rem;
-      }
-
-      .nav-links {
-        gap: 6px;
-        justify-content: space-between; /* Use space-between to push button to the right */
-      }
-
-      .nav-links a {
-        padding: 5px 4px; /* Adjusted padding for smaller screens */
-        font-size: 0.8rem;
-        margin: 0;
-      }
-
-      .nav-links .get-started {
-        padding: 8px 14px;
-        font-size: 0.8rem;
-        margin-left: auto; /* Ensure it's pushed right */
-      }
-
-      .animated-hero {
-        min-height: 300px;
-        padding: 30px 16px 0;
-      }
-
-      .hero-blob-bg {
-        height: 400px;
-      }
-
-      .hero-blob-bg svg {
-        height: 400px;
-      }
-
-      .hero-particles {
-        height: 300px;
-      }
-
-      .hero-info {
-        padding: 24px 16px;
-        margin: 0 16px;
-        border-radius: 16px;
-      }
-
-      .hero-info h1 {
-        font-size: 1.3rem;
-        margin-bottom: 12px;
-      }
-
-      .hero-info p {
-        font-size: 0.85rem;
-        margin-bottom: 16px;
-        line-height: 1.5;
-      }
-
-      .hero-info .cta-btn {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-      }
-
-      .section-title {
-        font-size: 1.3rem;
-        margin-bottom: 24px;
-      }
-
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .product-card {
-        padding: 16px 12px 20px;
-        min-height: auto;
-      }
-
-      .product-card img {
-        height: 100px;
-        margin-bottom: 12px;
-      }
-
-      .product-title {
-        font-size: 0.95rem;
-      }
-
-      .product-desc {
-        font-size: 0.85rem;
-        min-height: auto;
-      }
-
-      .product-card.expanded {
-        width: 95vw;
-        max-width: 100%;
-        padding: 24px 16px;
-      }
-
-      .blog-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      .blog-card {
-        padding: 16px 12px;
-      }
-
-      .blog-title {
-        font-size: 0.95rem;
-      }
-
-      .blog-text {
-        font-size: 0.85rem;
-      }
-
-      .counters {
-        gap: 12px;
-        margin: 30px auto 16px;
-      }
-
-      .counter-box {
-        width: 120px;
-        padding: 16px 10px;
-      }
-
-      .counter {
-        font-size: 1.3rem;
-      }
-
-      .counter-label {
-        font-size: 0.75rem;
-      }
-
-      .testimonial-slider {
-        gap: 12px;
-        padding: 5px 0;
-      }
-
-      .testimonial {
-        min-width: 220px;
-        max-width: 250px;
-        padding: 16px 12px;
-        font-size: 0.9rem;
-      }
-
-      .testimonial .user img {
-        width: 28px;
-        height: 28px;
-      }
-
-      .review-stars {
-        font-size: 0.9rem;
-      }
-
-      .testimonial .text {
-        font-size: 0.85rem;
-      }
-
-      .footer-cols {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .footer-cols > div {
-        text-align: center;
-      }
-
-      .footer-links a {
-        font-size: 0.9rem;
-      }
-
-      .footer-title {
-        font-size: 0.95rem;
-      }
-
-      .copyright {
-        font-size: 0.8rem;
-      }
-
-      section {
-        padding: 40px 0 20px 0;
-      }
-
-      .container {
-        padding: 0 16px;
-      }
-    }
-
-    /* ========== MEDIA QUERIES - SMALL MOBILE (360px) ========== */
-    @media (max-width: 360px) {
-      .navbar {
-        padding: 10px 12px;
-      }
-
-      .logo {
-        font-size: 1.1rem;
-      }
-
-      .nav-links a {
-        font-size: 0.75rem;
-        padding: 4px 0;
-        margin: 0 2px;
-      }
-
-      .hero-info h1 {
-        font-size: 1.1rem;
-      }
-
-      .hero-info p {
-        font-size: 0.8rem;
-      }
-
-      .section-title {
-        font-size: 1.1rem;
-      }
-
-      .product-card {
-        padding: 12px 10px 16px;
-      }
-
-      .product-card img {
-        height: 80px;
-      }
-
-      .counter-box {
-        width: 100px;
-        padding: 12px 8px;
-      }
-
-      .counter {
-        font-size: 1.1rem;
-      }
-
-      .testimonial {
-        min-width: 200px;
-        max-width: 220px;
-      }
+      body { background-attachment: scroll; }
+      .logo { font-size: 1.3rem; }
+      .hero-info h1 { font-size: 1.3rem; }
+      .hero-info p { font-size: 0.85rem; }
+      .product-card.expanded { width: 95vw; max-width: 340px; padding: 25px 15px; }
     }
   </style>
 </head>
 <body>
-<!-- Background Bubbles -->
+
 <div class="bubbles-bg">
   <div class="bubble bubble1"></div>
   <div class="bubble bubble2"></div>
@@ -1038,7 +681,8 @@
   <div class="bubble bubble5"></div>
 </div>
 
-<!-- Header Navigation -->
+<div class="modal-backdrop" id="modalBackdrop"></div>
+
 <header>
   <nav class="navbar">
     <span class="logo">Energysaversco</span>
@@ -1055,7 +699,6 @@
   </nav>
 </header>
 
-<!-- Hero Section -->
 <div class="animated-hero" id="hero">
   <div class="hero-blob-bg">
     <svg viewBox="0 0 1440 560" fill="none" preserveAspectRatio="xMidYMid slice">
@@ -1066,18 +709,12 @@
   </div>
   <canvas class="hero-particles"></canvas>
   <div class="hero-info">
-    <h1>
-      Scheduling <span class="dynamic">made easy</span> for Energy Upgrades
-    </h1>
-    <p>
-      Join customers who book energy-saving consultations, solar, AC, and LED upgrades with the <b>#1 local energy platform</b>.<br><br>
-      Smart, simple, and personalized—let's save costs, time & our planet together.
-    </p>
-    <button class="cta-btn" onclick="window.location.href='contact form.html'">Book a Consultation</button>
+    <h1>Scheduling <span class="dynamic">made easy</span> for Energy Upgrades</h1>
+    <p>Join customers who book energy-saving consultations, solar, AC, and LED upgrades with the <b>#1 local energy platform</b>.<br><br>Smart, simple, and personalized—let's save costs, time & our planet together.</p>
+    <button class="cta-btn" onclick="alert('Booking system coming soon!')">Book a Consultation</button>
   </div>
 </div>
 
-<!-- Counters Section -->
 <div class="counters container animate-section">
   <div class="counter-box">
     <span id="completed" class="counter">0</span>
@@ -1093,13 +730,12 @@
   </div>
 </div>
 
-<!-- Energy Solutions Section -->
 <section class="band animate-section" id="solutions">
   <div class="container">
     <div class="section-title">All-in-One <span>Energy Solutions</span></div>
     <div class="product-grid" id="energy-products">
       <div class="product-card" data-title="Battery Storage" data-details="• Lithium-ion, scalable for residential/commercial<br>• Reliable backup during outages.<br>• Connects to solar for maximal savings.">
-        <img src="assets/images/IMG_7902.png" alt="Battery Storage">
+        <img src="../assets/images/WhatsApp%20Image%202025-11-03%20at%204.07.07%20PM.jpeg" alt="Battery Storage">
         <div class="product-title">Battery Storage</div>
         <div class="product-desc">High-capacity energy storage for homes and commercial buildings.</div>
         <div class="expand-details"></div>
@@ -1137,7 +773,7 @@
       <div class="product-card" data-title="Room AC" data-details="• Portable, flexible<br>• For rentals and small spaces.">
         <img src="../assets/images/room_ac.jpeg" alt="Room AC">
         <div class="product-title">Room AC</div>
-        <div class="product-desc">Efficient performance for personal spaces.</div>
+        <div class="product-desc">Portable and flexible cooling solutions.</div>
         <div class="expand-details"></div>
       </div>
       <div class="product-card" data-title="Door Seals" data-details="• High-quality, professionally installed door seals<br>• Significantly improving insulation and saving energy costs.">
@@ -1156,7 +792,6 @@
   </div>
 </section>
 
-<!-- Recent Projects Section -->
 <section class="band animate-section" id="projects">
   <div class="container">
     <div class="section-title">Recent Projects</div>
@@ -1185,73 +820,43 @@
   </div>
 </section>
 
-<!-- Blog Section -->
 <section class="animate-section" id="blogs">
   <div class="container">
     <div class="section-title">Energy Tips & Insights</div>
     <div class="blog-grid">
-      <div class="blog-card">
-        <div class="blog-title">Choosing an AC</div>
-        <div class="blog-text">Size and usage matter—get advice for cost-efficient comfort.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-title">Solar in Australia</div>
-        <div class="blog-text">Endless sun and great rebates—go green and save big.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-title">Smart Battery Storage</div>
-        <div class="blog-text">Store solar, use it when prices spike.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-title">LED Lighting Saves Money</div>
-        <div class="blog-text">Cut lighting costs 80% and reduce carbon with LEDs.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-title">Heat Pump Hot Water</div>
-        <div class="blog-text">Upgrade for rebates and year-round savings.</div>
-      </div>
-      <div class="blog-card">
-        <div class="blog-title">Government Rebates</div>
-        <div class="blog-text">Big federal/state rebates for eligible upgrades!</div>
-      </div>
+      <div class="blog-card"><div class="blog-title">Choosing an AC</div><div class="blog-text">Size and usage matter—get advice for cost-efficient comfort.</div></div>
+      <div class="blog-card"><div class="blog-title">Solar in Australia</div><div class="blog-text">Endless sun and great rebates—go green and save big.</div></div>
+      <div class="blog-card"><div class="blog-title">Smart Battery Storage</div><div class="blog-text">Store solar, use it when prices spike.</div></div>
+      <div class="blog-card"><div class="blog-title">LED Lighting Saves Money</div><div class="blog-text">Cut lighting costs 80% and reduce carbon with LEDs.</div></div>
+      <div class="blog-card"><div class="blog-title">Heat Pump Hot Water</div><div class="blog-text">Upgrade for rebates and year-round savings.</div></div>
+      <div class="blog-card"><div class="blog-title">Government Rebates</div><div class="blog-text">Big federal/state rebates for eligible upgrades!</div></div>
     </div>
   </div>
 </section>
 
-<!-- Testimonials Section -->
 <section class="animate-section" id="testimonials">
   <div class="container">
     <div class="section-title">Customer Reviews</div>
     <div class="testimonial-slider">
       <div class="testimonial">
-        <div class="user">
-          <img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Sophie R"/>
-          <span class="user-name">Sophie R.</span>
-        </div>
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="user"><img src="https://randomuser.me/api/portraits/women/50.jpg" alt="Sophie R"/><span class="user-name">Sophie R.</span></div>
+        <div class="review-stars">★★★★★</div>
         <div class="text">Exceptional communication and workmanship! Our solar system works flawlessly. Highly recommended.</div>
       </div>
       <div class="testimonial">
-        <div class="user">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John M"/>
-          <span class="user-name">John M.</span>
-        </div>
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="user"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John M"/><span class="user-name">John M.</span></div>
+        <div class="review-stars">★★★★★</div>
         <div class="text">LED upgrade saved a fortune! Fast install, professional crew. We love the brightness.</div>
       </div>
       <div class="testimonial">
-        <div class="user">
-          <img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Xavier L"/>
-          <span class="user-name">Xavier L.</span>
-        </div>
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="user"><img src="https://randomuser.me/api/portraits/men/78.jpg" alt="Xavier L"/><span class="user-name">Xavier L.</span></div>
+        <div class="review-stars">★★★★★</div>
         <div class="text">Immediate support and advice. Battery storage is a game changer for our warehouse.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- What We Do Section -->
 <section class="animate-section" id="whatwedo">
   <div class="container">
     <div class="section-title">What We Do</div>
@@ -1264,7 +869,6 @@
   </div>
 </section>
 
-<!-- About Section -->
 <section class="band animate-section" id="about">
   <div class="container">
     <div class="section-title">About Energysaversco</div>
@@ -1276,7 +880,6 @@
   </div>
 </section>
 
-<!-- Footer -->
 <footer>
   <div class="footer-cols">
     <div>
@@ -1305,19 +908,19 @@
       </div>
     </div>
   </div>
-  <div class="copyright">
-    &copy; 2025 Energysaversco. All rights reserved.
-  </div>
+  <div class="copyright">&copy; 2025 Energysaversco. All rights reserved.</div>
 </footer>
 
-<!-- JavaScript -->
 <script>
   // ========== HERO WORDS ANIMATION ==========
   const heroWords = ['made easy', 'automated', 'personal', 'efficient', 'stress-free'];
   let idx = 0;
   setInterval(() => {
-    document.querySelector('.animated-hero .dynamic').textContent = heroWords[idx];
-    idx = (idx + 1) % heroWords.length;
+    const dynamicEl = document.querySelector('.animated-hero .dynamic');
+    if (dynamicEl) {
+      dynamicEl.textContent = heroWords[idx];
+      idx = (idx + 1) % heroWords.length;
+    }
   }, 2100);
 
   // ========== COUNTER ANIMATION ==========
@@ -1326,6 +929,7 @@
     const duration = 1500;
     const start = Date.now();
     const el = document.getElementById(id);
+    if (!el) return;
     function step() {
       const now = Date.now();
       const progress = Math.min((now - start) / duration, 1);
@@ -1341,113 +945,108 @@
   animateCounter('upcoming', 15);
 
   // ========== EXPANDABLE PRODUCT CARDS ==========
-  function setupExpandableCards(selector) {
-    const grid = document.getElementById(selector);
+  (function() {
     let openCard = null;
-    grid.querySelectorAll('.product-card').forEach(card => {
-      card.onclick = e => {
-        if (e.target.classList.contains('close-btn')) return;
-        if (openCard && openCard !== card) {
-          openCard.classList.remove('expanded');
-          openCard.querySelector('.expand-details').innerHTML = "";
-        }
-        if (card.classList.contains('expanded')) {
-          card.classList.remove('expanded');
-          card.querySelector('.expand-details').innerHTML = "";
-          openCard = null;
-          return;
-        }
-        card.classList.add('expanded');
-        openCard = card;
-        card.querySelector('.expand-details').innerHTML = `
-          <button class="close-btn" title="Close" onclick="event.stopPropagation();this.closest('.product-card').classList.remove('expanded');this.parentNode.innerHTML='';openCard=null;">&times;</button>
-          <strong>Details:</strong><br>${card.getAttribute('data-details') || 'More info coming soon.'}
-        `;
-      }
-    });
-    document.addEventListener('click', e => {
-      if (openCard && !openCard.contains(e.target) && !e.target.closest('.product-card')) {
+    const backdrop = document.getElementById('modalBackdrop');
+    
+    function closeExpandedCard() {
+      if (openCard) {
         openCard.classList.remove('expanded');
-        openCard.querySelector('.expand-details').innerHTML = "";
+        const expandDetails = openCard.querySelector('.expand-details');
+        if (expandDetails) expandDetails.innerHTML = "";
+        const closeBtn = openCard.querySelector('.close-btn');
+        if (closeBtn) closeBtn.remove();
         openCard = null;
+      }
+      document.body.classList.remove('modal-open');
+      if (backdrop) backdrop.classList.remove('active');
+    }
+    
+    window.closeExpandedCard = closeExpandedCard;
+    
+    function setupExpandableCards(selector) {
+      const grid = document.getElementById(selector);
+      if (!grid) return;
+      
+      const cards = grid.querySelectorAll('.product-card');
+      cards.forEach((card) => {
+        card.addEventListener('click', function(e) {
+          if (e.target.classList.contains('close-btn')) return;
+          if (openCard && openCard !== card) closeExpandedCard();
+          if (card.classList.contains('expanded')) {
+            closeExpandedCard();
+            return;
+          }
+          
+          card.classList.add('expanded');
+          document.body.classList.add('modal-open');
+          if (backdrop) backdrop.classList.add('active');
+          openCard = card;
+          
+          const closeBtn = document.createElement('button');
+          closeBtn.className = 'close-btn';
+          closeBtn.innerHTML = '&times;';
+          closeBtn.onclick = (e) => { e.stopPropagation(); closeExpandedCard(); };
+          card.appendChild(closeBtn);
+          
+          const expandDetails = card.querySelector('.expand-details');
+          if (expandDetails) {
+            const details = card.getAttribute('data-details') || 'More info coming soon.';
+            expandDetails.innerHTML = `<strong>Details:</strong><br>${details}`;
+          }
+        });
+      });
+    }
+    
+    if (backdrop) backdrop.addEventListener('click', closeExpandedCard);
+    setupExpandableCards('energy-products');
+  })();
+
+  // ========== SECTION REVEAL ANIMATION ==========
+  function revealSections() {
+    document.querySelectorAll('.animate-section').forEach(function (sec) {
+      var rect = sec.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 70) {
+        sec.classList.add('visible');
+        sec.querySelectorAll('.product-card, .blog-card, .testimonial').forEach((el, i) => {
+          setTimeout(() => el.classList.add('visible'), 90 + 60 * i);
+        });
       }
     });
   }
-  setupExpandableCards('energy-products');
+  window.addEventListener('scroll', revealSections, { passive: true });
+  revealSections();
 
-  // ========== ACTIVE NAV LINK ON SCROLL ==========
-  window.addEventListener('scroll', () => {
-    const sections = ['hero', 'solutions', 'products', 'projects', 'blogs', 'testimonials', 'whatwedo', 'about'];
-    let i = 0, top = window.scrollY + 90;
-    for (let j = 0; j < sections.length; j++) {
-      const s = document.getElementById(sections[j]);
-      if (s && top >= s.offsetTop) i = j;
-    }
-    document.querySelectorAll('.nav-links a').forEach((a, j) => a.classList.toggle('active', j === i));
-  });
-
-  // ========== SECTION REVEAL ANIMATION & HERO PARTICLES ==========
-  document.addEventListener('DOMContentLoaded', function () {
-    function revealSections() {
-      document.querySelectorAll('.animate-section').forEach(function (sec) {
-        var rect = sec.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 70) {
-          sec.classList.add('visible');
-          let children = sec.querySelectorAll('.product-card, .blog-card, .testimonial');
-          children.forEach((el, i) => {
-            setTimeout(() => el.classList.add('visible'), 90 + 60 * i);
-          });
-        } else {
-          sec.classList.remove('visible');
-          let children = sec.querySelectorAll('.product-card, .blog-card, .testimonial');
-          children.forEach(el => el.classList.remove('visible'));
-        }
+  // ========== HERO PARTICLES ==========
+  const canvas = document.querySelector('.hero-particles');
+  if (canvas) {
+    canvas.width = window.innerWidth;
+    canvas.height = 340;
+    let ctx = canvas.getContext('2d');
+    let P = 17, arr = [];
+    for (let i = 0; i < P; ++i) {
+      arr.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: 9 + Math.random() * 13,
+        t: Math.random() * 2 * Math.PI,
+        op: 0.13 + Math.random() * 0.25,
+        color: `rgba(${110 + Math.random() * 120 | 0},${200 + Math.random() * 52 | 0},${240 + Math.random() * 14 | 0},`
       });
     }
-    window.addEventListener('scroll', revealSections, { passive: true });
-    revealSections();
-
-    // ========== HERO PARTICLES CANVAS ANIMATION ==========
-    const canvas = document.querySelector('.hero-particles');
-    if (canvas) {
-      canvas.width = window.innerWidth;
-      canvas.height = 340;
-      let ctx = canvas.getContext('2d');
-      let P = 17, arr = [];
-      for (let i = 0; i < P; ++i) {
-        arr.push({
-          x: 160 + Math.random() * canvas.width - 320,
-          y: 140 + Math.random() * 159,
-          r: 9 + Math.random() * 13,
-          t: Math.random() * 2 * Math.PI,
-          sp: 0.55 + Math.random() * 0.3,
-          op: 0.13 + Math.random() * 0.25,
-          color: `rgba(${110 + Math.random() * 120 | 0},${200 + Math.random() * 52 | 0},${240 + Math.random() * 14 | 0},`
-        });
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = 0; i < P; i++) {
+        let e = arr[i];
+        let y = e.y + Math.sin(Date.now() / 9000 + e.t) * 19;
+        let x = e.x + Math.cos(Date.now() / 11000 + e.t) * 25;
+        ctx.beginPath(); ctx.arc(x, y, e.r, 0, 2 * Math.PI);
+        ctx.fillStyle = `${e.color}${e.op.toFixed(2)})`; ctx.fill();
       }
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < P; i++) {
-          let e = arr[i];
-          let y = e.y + Math.sin(Date.now() / 9000 + e.t + i / 6) * 19;
-          let x = e.x + Math.cos(Date.now() / 11000 + e.t + i) * 25;
-          ctx.beginPath();
-          ctx.arc(x, y, e.r, 0, 2 * Math.PI);
-          ctx.fillStyle = `${e.color}${e.op.toFixed(2)})`;
-          ctx.shadowColor = `#8fd1ff`;
-          ctx.shadowBlur = 12;
-          ctx.fill();
-        }
-        ctx.shadowBlur = 0;
-        requestAnimationFrame(draw);
-      }
-      draw();
-      window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-      }, false);
+      requestAnimationFrame(draw);
     }
-  });
+    draw();
+  }
 </script>
 </body>
 </html>
-
