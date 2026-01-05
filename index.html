@@ -102,8 +102,9 @@
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
       width: 100%;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .navbar {
@@ -115,6 +116,7 @@
       padding: 19px 20px;
       width: 100%;
       box-sizing: border-box;
+      transition: padding 0.3s ease;
     }
 
     .logo {
@@ -123,6 +125,7 @@
       color: var(--cta);
       white-space: nowrap;
       flex-shrink: 0;
+      transition: font-size 0.3s ease, opacity 0.3s ease;
     }
 
     .nav-links {
@@ -498,7 +501,6 @@
     }
 
     .testimonial.visible {
-      opacity: 1;
       transform: none;
       animation: reviewPulse 4.4s linear infinite alternate, testimonialFadeIn 1.13s cubic-bezier(.45, .08, .54, .9) both;
     }
@@ -646,10 +648,67 @@
 
     /* ========== MEDIA QUERIES ========== */
     @media (max-width: 768px) {
-      .navbar { flex-direction: column; align-items: flex-start; gap: 12px; padding: 16px 20px; }
-      .nav-links { width: 100%; flex-direction: column; align-items: flex-start; gap: 8px; }
-      .nav-links a { padding: 8px 0; font-size: 0.9rem; }
-      .nav-links .get-started { width: 100%; text-align: center; margin-left: 0; margin-top: 8px; }
+      header {
+        position: sticky;
+        top: 0;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 0;
+        overflow: hidden;
+      }
+
+      /* When scrolled, we hide the logo and make the nav a horizontal strip */
+      header.scrolled .navbar {
+        padding: 8px 10px;
+      }
+
+      header.scrolled .logo {
+        font-size: 0;
+        opacity: 0;
+        margin: 0;
+        padding: 0;
+        width: 0;
+      }
+
+      .navbar { 
+        flex-direction: row; 
+        align-items: center; 
+        gap: 0; 
+        padding: 12px 15px; 
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .nav-links { 
+        width: 100%; 
+        flex-direction: row; 
+        align-items: center; 
+        gap: 15px; 
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        justify-content: flex-start;
+        padding: 5px 0;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+      }
+
+      .nav-links a { 
+        padding: 6px 4px; 
+        font-size: 0.85rem; 
+        display: inline-block;
+      }
+
+      .nav-links .get-started { 
+        width: auto; 
+        text-align: center; 
+        margin-left: 5px; 
+        margin-top: 0; 
+        padding: 8px 14px;
+      }
+
       .hero-info { padding: 32px 20px; margin: 0 20px; }
       .hero-info h1 { font-size: 1.6rem; }
       .section-title { font-size: 1.5rem; }
@@ -683,7 +742,7 @@
 
 <div class="modal-backdrop" id="modalBackdrop"></div>
 
-<header>
+<header id="mainHeader">
   <nav class="navbar">
     <span class="logo">Energysaversco</span>
     <div class="nav-links">
@@ -773,7 +832,7 @@
       <div class="product-card" data-title="Room AC" data-details="• Portable, flexible<br>• For rentals and small spaces.">
         <img src="../assets/images/room_ac.jpeg" alt="Room AC">
         <div class="product-title">Room AC</div>
-        <div class="product-desc">Portable and flexible cooling solutions.</div>
+        <div class="product-desc">Energy-saving cooling for small spaces.</div>
         <div class="expand-details"></div>
       </div>
       <div class="product-card" data-title="Door Seals" data-details="• High-quality, professionally installed door seals<br>• Significantly improving insulation and saving energy costs.">
@@ -791,6 +850,7 @@
     </div>
   </div>
 </section>
+
 <section class="animate-section" id="blogs">
   <div class="container">
     <div class="section-title">Energy Tips & Insights</div>
@@ -880,6 +940,18 @@
 </footer>
 
 <script>
+  // ========== MOBILE NAV TRANSITION ==========
+  const header = document.getElementById('mainHeader');
+  window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }
+  }, { passive: true });
+
   // ========== HERO WORDS ANIMATION ==========
   const heroWords = ['made easy', 'automated', 'personal', 'efficient', 'stress-free'];
   let idx = 0;
@@ -1018,8 +1090,3 @@
 </script>
 </body>
 </html>
-
-
-
-
-
