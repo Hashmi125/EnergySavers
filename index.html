@@ -104,7 +104,7 @@
       top: 0;
       z-index: 100;
       width: 100%;
-      transition: all 0.3s ease;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .navbar {
@@ -116,7 +116,7 @@
       padding: 19px 20px;
       width: 100%;
       box-sizing: border-box;
-      transition: all 0.3s ease;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .logo {
@@ -125,7 +125,7 @@
       color: var(--cta);
       white-space: nowrap;
       flex-shrink: 0;
-      transition: all 0.3s ease;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-links {
@@ -134,7 +134,7 @@
       align-items: center;
       flex-wrap: wrap;
       justify-content: flex-end;
-      transition: all 0.3s ease;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-links a {
@@ -659,26 +659,32 @@
       .navbar { 
         flex-direction: column; 
         align-items: center; 
-        gap: 10px; 
-        padding: 15px 10px 10px; 
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: 0; 
+        padding: 15px 10px 5px; 
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       /* When scrolled, the logo shrinks or hides to make the nav strip more compact */
       header.scrolled .navbar {
-        padding: 8px 10px;
+        padding: 5px 10px 5px;
       }
 
       header.scrolled .logo {
         font-size: 1.1rem;
         margin-bottom: 2px;
+        opacity: 0.9;
+      }
+
+      header.scrolled .nav-links {
+        padding: 5px 5px;
       }
 
       .logo {
         font-size: 1.5rem;
-        margin-bottom: 5px;
+        margin-bottom: 8px;
         width: 100%;
         text-align: center;
+        display: block;
       }
 
       .nav-links { 
@@ -690,10 +696,11 @@
         overflow-y: hidden;
         white-space: nowrap;
         justify-content: flex-start;
-        padding: 8px 5px;
+        padding: 10px 5px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none; /* Firefox */
         border-top: 1px solid #f0f0f0;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .nav-links::-webkit-scrollbar {
@@ -947,15 +954,21 @@
 <script>
   // ========== MOBILE NAV TRANSITION ==========
   const header = document.getElementById('mainHeader');
-  window.addEventListener('scroll', () => {
+  
+  // Use a very small threshold (10px) to trigger the transition immediately
+  function handleScroll() {
     if (window.innerWidth <= 768) {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 10) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
     }
-  }, { passive: true });
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  // Run once on load in case page is already scrolled
+  handleScroll();
 
   // ========== HERO WORDS ANIMATION ==========
   const heroWords = ['made easy', 'automated', 'personal', 'efficient', 'stress-free'];
