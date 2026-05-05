@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Energy Saver Co | Modern Energy Solutions</title>
-  <meta name="description" content="Energy Saver Co provides modern energy-saving solutions including solar, batteries, air conditioning, heat pumps, and government-approved upgrades in Australia.">
+  <title>Energy Savers Co | Modern Energy Solutions</title>
+  <meta name="description" content="Energy Savers Co provides modern energy-saving solutions including solar, batteries, air conditioning, heat pumps, and government-approved upgrades in Australia.">
 
 <script type="application/ld+json">
 {
@@ -115,7 +115,7 @@
       top: 0;
       z-index: 100;
       width: 100%;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .navbar {
@@ -127,7 +127,7 @@
       padding: 19px 20px;
       width: 100%;
       box-sizing: border-box;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: padding 0.3s ease;
     }
 
     .logo {
@@ -136,7 +136,7 @@
       color: var(--cta);
       white-space: nowrap;
       flex-shrink: 0;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: font-size 0.3s ease, opacity 0.3s ease;
     }
 
     .nav-links {
@@ -145,7 +145,6 @@
       align-items: center;
       flex-wrap: wrap;
       justify-content: flex-end;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .nav-links a {
@@ -641,14 +640,33 @@
 
     .footer-social {
       margin-top: 14px;
+      display: flex;
+      gap: 10px;
     }
 
     .footer-social a {
-      color: var(--accent);
-      margin-right: 12px;
-      font-size: 1.3rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      color: #fff;
       text-decoration: none;
-      display: inline-block;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .footer-social a:hover {
+      transform: scale(1.15);
+      opacity: 0.9;
+    }
+
+    .footer-social .facebook {
+      background: #1877F2;
+    }
+
+    .footer-social .instagram {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
     }
 
     .copyright {
@@ -665,37 +683,28 @@
         top: 0;
         background: rgba(255, 255, 255, 0.98);
         padding: 0;
+        overflow: hidden;
       }
 
-      .navbar { 
-        flex-direction: column; 
-        align-items: center; 
-        gap: 0; 
-        padding: 15px 10px 5px; 
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      }
-
-      /* When scrolled, the logo shrinks or hides to make the nav strip more compact */
+      /* When scrolled, we hide the logo and make the nav a horizontal strip */
       header.scrolled .navbar {
-        padding: 5px 10px 5px;
+        padding: 8px 10px;
       }
 
       header.scrolled .logo {
-        font-size: 1.1rem;
-        margin-bottom: 2px;
-        opacity: 0.9;
+        font-size: 0;
+        opacity: 0;
+        margin: 0;
+        padding: 0;
+        width: 0;
       }
 
-      header.scrolled .nav-links {
-        padding: 5px 5px;
-      }
-
-      .logo {
-        font-size: 1.5rem;
-        margin-bottom: 8px;
-        width: 100%;
-        text-align: center;
-        display: block;
+      .navbar { 
+        flex-direction: row; 
+        align-items: center; 
+        gap: 0; 
+        padding: 12px 15px; 
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .nav-links { 
@@ -707,11 +716,9 @@
         overflow-y: hidden;
         white-space: nowrap;
         justify-content: flex-start;
-        padding: 10px 5px;
+        padding: 5px 0;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none; /* Firefox */
-        border-top: 1px solid #f0f0f0;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .nav-links::-webkit-scrollbar {
@@ -767,7 +774,7 @@
 
 <header id="mainHeader">
   <nav class="navbar">
-    <span class="logo">Energy Saver Co</span>
+    <span class="logo">Energy Savers Co</span>
     <div class="nav-links">
       <a href="#hero" class="active">Home</a>
       <a href="#solutions">Solutions</a>
@@ -954,8 +961,16 @@
     <div>
       <div class="footer-title">Connect</div>
       <div class="footer-social">
-        <a href="#" title="LinkedIn">&#128188;</a>
-        <a href="#" title="Twitter">&#128081;</a>
+        <a href="https://www.facebook.com/YourFacebookPage" target="_blank" rel="noopener noreferrer" class="facebook" title="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/YourInstagramHandle" target="_blank" rel="noopener noreferrer" class="instagram" title="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+        </a>
       </div>
     </div>
   </div>
@@ -965,21 +980,15 @@
 <script>
   // ========== MOBILE NAV TRANSITION ==========
   const header = document.getElementById('mainHeader');
-  
-  // Use a very small threshold (10px) to trigger the transition immediately
-  function handleScroll() {
+  window.addEventListener('scroll', () => {
     if (window.innerWidth <= 768) {
-      if (window.scrollY > 10) {
+      if (window.scrollY > 50) {
         header.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
       }
     }
-  }
-
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  // Run once on load in case page is already scrolled
-  handleScroll();
+  }, { passive: true });
 
   // ========== HERO WORDS ANIMATION ==========
   const heroWords = ['made easy', 'automated', 'personal', 'efficient', 'stress-free'];
@@ -1009,9 +1018,9 @@
     }
     step();
   }
-  animateCounter('completed', 79);
-  animateCounter('inwork', 23);
-  animateCounter('upcoming', 9);
+  animateCounter('completed', 75);
+  animateCounter('inwork', 30);
+  animateCounter('upcoming', 15);
 
   // ========== EXPANDABLE PRODUCT CARDS ==========
   (function() {
@@ -1119,4 +1128,3 @@
 </script>
 </body>
 </html>
-
