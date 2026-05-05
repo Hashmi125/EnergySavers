@@ -93,7 +93,6 @@
       box-shadow:0 2px 18px #24c7fd43, 0 0 0 3px #1abff5a9;
     }
     textarea { resize:vertical;}
-    /* Tag selection for interest */
     .tag-select-label {
       display: block;
       color: #0e5fa7;
@@ -135,22 +134,9 @@
     .tag-option .tag-checkbox {
       position: absolute; left:11px; width:1rem;height:1rem;
       background: none; border:1.5px solid #18c7b3; border-radius:3px;
-      transition:border .19s;display:flex;align-items:center;justify-content:center;
     }
     .tag-option.selected .tag-checkbox {
       border:1.5px solid #fff;background:#18c7b3;
-    }
-    .tag-option .tag-checkbox svg {
-      display:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
-    }
-    .tag-option.selected .tag-checkbox svg {
-      display:block;
-      animation:checkpop .28s cubic-bezier(.62,1.7,.33,1);
-    }
-    @keyframes checkpop {
-      0%{transform:scale(0);}
-      75%{transform:scale(1.25);}
-      100%{transform:scale(1);}
     }
     .form-checkbox {
       display: flex;
@@ -175,158 +161,126 @@
       flex: 1;
       cursor: pointer;
     }
-    .form-checkbox label.marketing {
-      color: #1996f1;
-    }
-    .contact-card button[type=submit] {
+    button[type=submit] {
       background:linear-gradient(90deg,#166efa,#1ad9e6 94%);
       color:#fff;font-weight:800;font-size:1.17rem;padding:14px 0;width:100%;
-      border: none; border-radius:15px; box-shadow:0 3px 18px #1bc6fd3c, 0 0 0 2.5px #18c7b33c; cursor:pointer;
-      transition:background .14s,transform .16s,box-shadow .17s;margin-top:6px;text-shadow:0 1px 7px #66f1ff4a;
-      letter-spacing:.7px;
-    }
-    .contact-card button[type=submit]:hover {background:#1095bd;box-shadow:0 4px 26px #18c7b333, 0 0 0 4px #41e6fa76;}
-    .form-privacy {
-      margin-top:23px;font-size:.97rem;color:#145e78;text-align:center;background:#f4fdff;border-radius:10px;padding:11px 16px 10px 16px;
-      box-shadow:0 3px 26px #0ae5ff13 inset;
-    }
-    @media(max-width:600px){
-      .contact-card{padding: 8vw 4vw;}
-      .brand-logo{width:41px;height:41px;}
-      .contact-title{font-size:1.33rem;}
-      .tag-list{gap:7.4px;}
-      .form-checkbox {font-size:.99rem;}
+      border: none; border-radius:15px; cursor:pointer;
     }
   </style>
 </head>
+
 <body>
+
 <div class="anim-grad-bg"></div>
+
 <div class="contact-main">
-  <form class="contact-card" autocomplete="off">
-    <!-- Replace SVG below with your SVG logo for full customization -->
-    <svg class="brand-logo" viewBox="0 0 48 48"><circle cx="24" cy="24" r="22" fill="#166efa"/><path d="M17 30v-6.5a7 7 0 0114 0V30" fill="none" stroke="#fff" stroke-width="2.7"/><circle cx="24" cy="22.2" r="2.6" fill="#fff"/></svg>
+
+  <!-- ⭐ FORM START ⭐ -->
+  <form class="contact-card" autocomplete="off"
+        action="https://formspree.io/f/xjglwrnj"
+        method="POST">
+
+    <svg class="brand-logo" viewBox="0 0 48 48">
+      <circle cx="24" cy="24" r="22" fill="#166efa"/>
+      <path d="M17 30v-6.5a7 7 0 0114 0V30" fill="none" stroke="#fff" stroke-width="2.7"/>
+      <circle cx="24" cy="22.2" r="2.6" fill="#fff"/>
+    </svg>
+
     <div class="contact-title">Contact Us</div>
+
     <div class="contact-desc">
       Get in touch for bookings or partnership. <br>
-      <em>Your comfort, our commitment
-        <svg width="19" height="19" style="vertical-align:middle;fill:#18c7b3;margin-left:1px;" viewBox="0 0 16 16"><path d="M8,2.1A5.9,5.9,0,1,0,13.9,8,5.923,5.923,0,0,0,8,2.1Zm0,10.8A4.9,4.9,0,1,1,12.9,8,4.915,4.915,0,0,1,8,12.9Z"/><circle cx="8" cy="8" r="2.3"/></svg>
-      </em>
+      <em>Your comfort, our commitment</em>
     </div>
+
     <div class="form-group">
-      <svg class="input-icon" viewBox="0 0 24 24"><path d="M19.8 21v-1.5A3.49 3.49 0 0 0 16.3 16H7.7A3.49 3.49 0 0 0 4.2 19.5V21"/><circle cx="12" cy="7.5" r="4" /></svg>
       <input type="text" name="fullname" required placeholder="Full Name">
     </div>
+
     <div class="form-group">
-      <svg class="input-icon" viewBox="0 0 24 24"><path d="M3 7.78C7.5 3.28 17 3.28 21 7.78"/><rect x="2" y="9" width="20" height="12" rx="2"/><circle cx="12" cy="15" r="3"/></svg>
       <input type="text" name="company" placeholder="Company (if business)">
     </div>
+
     <div class="form-group">
-      <svg class="input-icon" viewBox="0 0 24 24"><path d="M6 3h12a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"/><path d="M11 19h2"/></svg>
       <input type="tel" name="phone" required placeholder="Phone Number">
     </div>
+
     <div class="form-group">
-      <svg class="input-icon" viewBox="0 0 24 24"><path d="M3 5.5L12 13 21 5.5" /><rect x="3" y="5" width="18" height="14" rx="2" /></svg>
       <input type="email" name="email" required placeholder="Email">
     </div>
+
     <div class="form-group">
       <span class="tag-select-label">What are you interested in?</span>
       <div class="tag-list" id="interestTags">
-        <span class="tag-option" tabindex="0" data-value="Solar Panels & Installations">
-          <span class="tag-checkbox">
-            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
-          </span>
-          Solar Panels & Installations
-        </span>
-        <span class="tag-option" tabindex="0" data-value="Solar Battery Storage">
-          <span class="tag-checkbox">
-            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
-          </span>
-          Solar Battery Storage
-        </span>
-        <span class="tag-option" tabindex="0" data-value="Air Conditioning Upgrades">
-          <span class="tag-checkbox">
-            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
-          </span>
-          Air Conditioning Upgrades
-        </span>
-        <span class="tag-option" tabindex="0" data-value="Hot Water System">
-          <span class="tag-checkbox">
-            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
-          </span>
-          Hot Water System
-        </span>
-        <span class="tag-option" tabindex="0" data-value="Induction Cooktop">
-          <span class="tag-checkbox">
-            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
-          </span>
-          Induction Cooktop
-        </span>
-        <span class="tag-option" tabindex="0" data-value="Government Rebate/Program Info">
-          <span class="tag-checkbox">
-            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
-          </span>
-          Government Rebate / Program Info
-        </span>
-        <span class="tag-option" tabindex="0" data-value="Other / Partnership">
-          <span class="tag-checkbox">
-            <svg viewBox="0 0 20 20"><polyline points="4,12 9,17 17,5" style="fill:none;stroke:#fff;stroke-width:2.7;"/></svg>
-          </span>
-          Other / Partnership
-        </span>
+        <span class="tag-option" data-value="Solar Panels & Installations">Solar Panels & Installations</span>
+        <span class="tag-option" data-value="Solar Battery Storage">Solar Battery Storage</span>
+        <span class="tag-option" data-value="Air Conditioning Upgrades">Air Conditioning Upgrades</span>
+        <span class="tag-option" data-value="Hot Water System">Hot Water System</span>
+        <span class="tag-option" data-value="Induction Cooktop">Induction Cooktop</span>
+        <span class="tag-option" data-value="Government Rebate/Program Info">Government Rebate / Program Info</span>
+        <span class="tag-option" data-value="Other / Partnership">Other / Partnership</span>
       </div>
       <input type="hidden" name="interest" id="selectedInterests" required>
     </div>
+
     <div class="form-group">
-      <svg class="input-icon" viewBox="0 0 24 24"><path d="M4 18v-8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8"/><polyline points="7 9 12 12 17 9"/></svg>
       <textarea name="message" required rows="4" placeholder="Your message or details..."></textarea>
     </div>
 
     <div class="form-checkbox">
-      <input type="checkbox" id="auth" required>
+      <input type="checkbox" id="auth" name="authorised" required>
       <label for="auth">I am an authorised contact for this company (if business).</label>
     </div>
+
     <div class="form-checkbox">
-      <input type="checkbox" id="marketing" required>
+      <input type="checkbox" id="marketing" name="marketing" required>
       <label for="marketing" class="marketing">I agree to be contacted about energy-saving upgrades and government programs.</label>
     </div>
 
     <button type="submit">Send Message</button>
+
     <div class="form-privacy">
-      <b>Privacy:</b> Your details are kept secure and only used to support your eligibility or enquiry. Unsubscribe at any time.
+      <b>Privacy:</b> Your details are secure and only used for your enquiry.
     </div>
+
   </form>
+  <!-- ⭐ FORM END ⭐ -->
+
 </div>
+
 <script>
-  // Tag select UI logic
+  // Tag UI logic
   const tags = document.querySelectorAll('.tag-option');
   const hiddenInput = document.getElementById('selectedInterests');
+
   function updateTags() {
-    let vals = Array.from(tags).filter(t=>t.classList.contains('selected')).map(t=>t.getAttribute('data-value'));
+    let vals = Array.from(tags)
+      .filter(t => t.classList.contains('selected'))
+      .map(t => t.getAttribute('data-value'));
     hiddenInput.value = vals.join(', ');
     hiddenInput.setCustomValidity(vals.length ? "" : "Please select at least one interest.");
   }
+
   tags.forEach(tag => {
-    tag.addEventListener('click', e=>{
+    tag.addEventListener('click', () => {
       tag.classList.toggle('selected');
       updateTags();
     });
-    tag.addEventListener('keydown', e=>{
-      if(['Enter',' '].includes(e.key)) { tag.classList.toggle('selected'); updateTags(); }
-    });
   });
+
   updateTags();
-  document.querySelector('form').onsubmit = e => {
-    e.preventDefault();
+
+  // Form validation without blocking submission
+  document.querySelector('form').addEventListener('submit', function (e) {
     if (!hiddenInput.value) {
       hiddenInput.setCustomValidity("Please select at least one interest.");
       hiddenInput.reportValidity();
-      return;
+      e.preventDefault();
+    } else {
+      hiddenInput.setCustomValidity("");
     }
-    alert("Thank you for contacting us! We’ll get back to you soon.");
-    e.target.reset();
-    tags.forEach(t=>t.classList.remove('selected'));
-    updateTags();
-  };
+  });
 </script>
+
 </body>
 </html>
