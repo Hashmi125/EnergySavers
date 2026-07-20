@@ -377,6 +377,7 @@
       margin-top: 8px;
       transition: transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 4px 20px rgba(22, 110, 250, 0.3);
+      position: relative;
     }
     button[type=submit]:hover {
       transform: translateY(-2px);
@@ -384,6 +385,31 @@
     }
     button[type=submit]:active {
       transform: translateY(0);
+    }
+    button[type=submit]:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid #fff;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    button[type=submit].loading .spinner {
+      display: inline-block;
+    }
+    button[type=submit].loading .btn-text {
+      display: none;
     }
 
     .form-privacy {
@@ -462,6 +488,7 @@
         autocomplete="off"
         action="https://formspree.io/f/xjglwrnj" 
         method="POST"
+        id="contactForm"
         aria-label="Contact form">
 
     <svg class="brand-logo" viewBox="0 0 48 48" aria-hidden="true" role="img">
@@ -548,7 +575,10 @@
       <label for="marketing">I agree to be contacted about energy-saving upgrades and government programs.</label>
     </div>
 
-    <button type="submit">Send Message</button>
+    <button type="submit" id="submitBtn">
+      <span class="spinner"></span>
+      <span class="btn-text">Send Message</span>
+    </button>
 
     <div class="form-privacy">
       <strong>Privacy:</strong> Your details are secure and only used for your enquiry.
@@ -567,6 +597,7 @@
 </main>
 
 <script>
+  // ===================== TAG SELECTION =====================
   const tags = document.querySelectorAll('.tag-option');
   const hiddenInput = document.getElementById('selectedInterests');
 
@@ -599,14 +630,54 @@
 
   updateTags();
 
-  document.querySelector('form').addEventListener('submit', function(e) {
+  // ===================== FORM SUBMISSION WITH FETCH API =====================
+  const form = document.getElementById('contactForm');
+  const submitBtn = document.getElementById('submitBtn');
+
+  // CHANGE THIS to your actual thank-you page URL
+  const THANK_YOU_URL = '/thank-you.html';
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Validate tags
     if (!hiddenInput.value) {
       hiddenInput.setCustomValidity('Please select at least one interest.');
       hiddenInput.reportValidity();
-      e.preventDefault();
-    } else {
-      hiddenInput.setCustomValidity('');
+      return;
     }
+
+    // Show loading state
+    submitBtn.disabled = true;
+    submitBtn.classList.add('loading');
+
+    // Collect form data
+    const formData = new FormData(form);
+
+    // Submit to Formspree via fetch API (AJAX)
+    fetch(form.action, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        // SUCCESS: Form submitted to Formspree + redirect to thank-you page
+        window.location.href = THANK_YOU_URL;
+      } else {
+        throw new Error('Form submission failed');
+      }
+    })
+    .catch(error => {
+      // Reset button
+      submitBtn.disabled = false;
+      submitBtn.classList.remove('loading');
+
+      alert('Something went wrong. Please try again or call us at +61 452 300 883.');
+      console.error('Error:', error);
+    });
   });
 </script>
 
