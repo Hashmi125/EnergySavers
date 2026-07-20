@@ -2,8 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Contact | Energysaversco</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- SEO Essentials -->
+  <title>Contact EnergySaversCo | Solar & Energy Solutions Australia</title>
+  <meta name="description" content="Contact EnergySaversCo for solar panel installation, battery storage, air conditioning upgrades, hot water systems, and government rebate programs. Get a free quote today."/>
+  <meta name="keywords" content="solar panels, battery storage, air conditioning, hot water system, induction cooktop, government rebate, energy savings, contact"/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="https://energysaversco.com/contact"/>
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://energysaversco.com/contact"/>
+  <meta property="og:title" content="Contact EnergySaversCo | Solar & Energy Solutions"/>
+  <meta property="og:description" content="Get in touch for solar panel installation, battery storage, air conditioning upgrades, and government rebate programs."/>
+  <meta property="og:image" content="https://energysaversco.com/assets/og-image.jpg"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Contact EnergySaversCo | Solar & Energy Solutions"/>
+  <meta name="twitter:description" content="Get in touch for solar panel installation, battery storage, and government rebate programs."/>
+  <meta name="twitter:image" content="https://energysaversco.com/assets/og-image.jpg"/>
+
+  <!-- Schema.org LocalBusiness Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "EnergySaversCo",
+    "description": "Energy solutions provider specializing in solar panels, battery storage, air conditioning upgrades, hot water systems, and induction cooktops.",
+    "url": "https://energysaversco.com",
+    "telephone": "+61452300883",
+    "email": "info@energysaversco.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "AU"
+    },
+    "serviceType": [
+      "Solar Panel Installation",
+      "Battery Storage Systems",
+      "Air Conditioning Upgrades",
+      "Hot Water Systems",
+      "Induction Cooktops",
+      "Government Rebate Assistance"
+    ],
+    "openingHours": "Mo-Fr 08:00-18:00",
+    "priceRange": "$$"
+  }
+  </script>
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18164934542"></script>
   <script>
@@ -12,155 +59,301 @@
     gtag('js', new Date());
     gtag('config', 'AW-18164934542');
   </script>
-  <link href="https://fonts.googleapis.com/css?family=Inter:400,700&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800&display=swap" rel="stylesheet">
+
   <style>
-    html, body {height:100%;}
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     body {
-      margin:0;
+      margin: 0;
       font-family: 'Inter', Arial, sans-serif;
-      min-height:100vh;
+      min-height: 100vh;
       background: linear-gradient(120deg, #197fd8 0%, #84e4ff 55%, #d9f6ff 100%);
-      position:relative;
+      position: relative;
       overflow-x: hidden;
+      color: #1a3a5c;
+      line-height: 1.6;
     }
     .anim-grad-bg {
-      position:fixed;
-      z-index:-2; inset:0;
-      width:100vw;height:100vh;
-      background: linear-gradient(135deg,#1a91ff 0%,#18c7b3 40%,#f0f5ff 100%);
+      position: fixed;
+      z-index: -2;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #1a91ff 0%, #18c7b3 40%, #f0f5ff 100%);
       background-size: 200% 200%;
       animation: gradientMove 13s ease-in-out infinite;
     }
     @keyframes gradientMove {
-      0% {background-position: 0% 50%;}
-      40% {background-position: 100% 51%;}
-      80% {background-position: 0% 41%;}
-      100% {background-position: 0% 50%;}
+      0% { background-position: 0% 50%; }
+      40% { background-position: 100% 51%; }
+      80% { background-position: 0% 41%; }
+      100% { background-position: 0% 50%; }
     }
-    .contact-main {
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #166efa;
+      color: #fff;
+      padding: 8px 16px;
+      z-index: 100;
+      transition: top 0.3s;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .skip-link:focus { top: 0; }
+
+    .contact-wrapper {
       min-height: 100vh;
-      display: flex; align-items: center; justify-content: center;
-      position: relative; z-index:2;
-      padding: 64px 0 50px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      padding: 40px 20px;
     }
+
+    .content-section {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      margin-bottom: 32px;
+      padding: 0 20px;
+    }
+    .content-section h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+    .content-section .lead {
+      font-size: 1.2rem;
+      color: #e0f7ff;
+      max-width: 600px;
+      margin: 0 auto 24px auto;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.1);
+    }
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .trust-badge {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 12px;
+      padding: 12px 20px;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      max-width: 800px;
+      width: 100%;
+      margin-bottom: 32px;
+      padding: 0 20px;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      color: #fff;
+      transition: transform 0.2s, background 0.2s;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.2);
+    }
+    .service-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+
     .contact-card {
-      width:100%;
-      max-width:460px;
-      background: rgba(255, 255, 255, 0.76);
+      width: 100%;
+      max-width: 520px;
+      background: rgba(255, 255, 255, 0.88);
       border-radius: 28px;
       box-shadow: 0 18px 80px #14bcf435, 0 0 0 3px #b9e9f8, 0 0 0 1.5px #13bfdd38;
-      padding: 44px 34px 36px 34px;
-      margin:auto;
+      padding: 40px 32px 32px 32px;
+      margin: auto;
       position: relative;
-      display: flex; flex-direction: column; align-items: center;
-      backdrop-filter: blur(9px) saturate(1.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      backdrop-filter: blur(12px) saturate(1.3);
       border: 1.5px solid #e2f5ff;
-      transition: box-shadow .23s;
+      transition: box-shadow 0.23s;
     }
-    .contact-card:hover { box-shadow:0 30px 120px #54e0ff56,0 0 0 3px #18c7b355;}
+    .contact-card:hover {
+      box-shadow: 0 30px 120px #54e0ff56, 0 0 0 3px #18c7b355;
+    }
     .brand-logo {
-      margin: 0 auto 17px auto;
+      margin: 0 auto 16px auto;
       display: block;
-      width: 51px; height:51px;
+      width: 56px;
+      height: 56px;
       filter: drop-shadow(0 7px 17px #14c2fccb);
     }
     .contact-title {
-      font-size:2.12rem;
-      color:#1276c5;
-      font-weight:900;
-      text-align:center;
-      margin-bottom:9px;
-      letter-spacing:-1.3px;
-      background:linear-gradient(90deg,#166efa,#18c7b3 92%);
-      background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      font-size: 2rem;
+      color: #1276c5;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+      background: linear-gradient(90deg, #166efa, #18c7b3 92%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .contact-desc {
-      color:#205bba;text-align:center;margin-bottom:24px;
-      font-size:1.1rem;line-height:1.6;
+      color: #205bba;
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+      line-height: 1.6;
     }
-    .form-group {width:100%;position:relative;margin-bottom:26px;}
-    .input-icon {
-      position:absolute;left:15px;top:52%;transform:translateY(-50%);
-      width:23px;height:23px;fill:#22a7ef;opacity:.89;
-      pointer-events:none;
+
+    .form-group {
+      width: 100%;
+      position: relative;
+      margin-bottom: 22px;
+    }
+    .form-group label {
+      display: block;
+      color: #0e5fa7;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      padding-left: 4px;
+    }
+    .form-group label .required {
+      color: #e74c3c;
+      margin-left: 2px;
     }
     input, textarea {
-      width:100%;border-radius:13px;
+      width: 100%;
+      border-radius: 13px;
       border: none;
       background: #f4faff;
       box-shadow: 0 2px 19px #57dbfb13, 0 1px 0 #d2f8ffb8;
-      padding:13px 14px 13px 49px;
-      font-size: 1.09rem;
-      margin:0;box-sizing:border-box;
-      transition:box-shadow .19s, background .19s;
-      outline:none;
-      font-family:inherit;
+      padding: 13px 16px;
+      font-size: 1.05rem;
+      margin: 0;
+      transition: box-shadow 0.19s, background 0.19s;
+      outline: none;
+      font-family: inherit;
+      color: #1a3a5c;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #8ab4d0;
     }
     input:focus, textarea:focus {
-      background:#eafdff;
-      box-shadow:0 2px 18px #24c7fd43, 0 0 0 3px #1abff5a9;
+      background: #eafdff;
+      box-shadow: 0 2px 18px #24c7fd43, 0 0 0 3px #1abff5a9;
     }
-    textarea { resize:vertical;}
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
     .tag-select-label {
       display: block;
       color: #0e5fa7;
       font-weight: 700;
       margin: 0 0 10px 2px;
-      letter-spacing: .2px;
+      letter-spacing: 0.2px;
     }
     .tag-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 11px;
+      gap: 10px;
       margin: 0 0 8px 0;
     }
     .tag-option {
-      background: linear-gradient(95deg,#e8f9ff 60%,#fafdff 100%);
+      background: linear-gradient(95deg, #e8f9ff 60%, #fafdff 100%);
       color: #1592b6;
       border-radius: 27px;
-      padding: 8px 21px 8px 31px;
+      padding: 8px 20px 8px 30px;
       font-weight: 600;
       box-shadow: 0 2.5px 15px #97e5fb21 inset;
-      font-size: 1.01rem;
+      font-size: 0.95rem;
       position: relative;
       border: 2px solid #eaf7ff;
       cursor: pointer;
-      transition: background .21s, color .19s, border .19s, box-shadow .21s;
+      transition: all 0.21s;
       user-select: none;
-      min-width: 84px;
+      min-width: 80px;
       outline: none;
-      z-index:1;
-      display:flex;align-items:center;
+      z-index: 1;
+      display: flex;
+      align-items: center;
     }
-    .tag-option.selected, .tag-option:active {
-      background: linear-gradient(90deg,#166efa 61%,#18c7b3 100%);
+    .tag-option:hover {
+      border-color: #18c7b3;
+      background: linear-gradient(95deg, #d4f5ff 60%, #f0fbff 100%);
+    }
+    .tag-option.selected {
+      background: linear-gradient(90deg, #166efa 61%, #18c7b3 100%);
       color: #fff;
       border: 2px solid #77e2f7;
       box-shadow: 0 2.5px 14px #16dcfab7;
-      font-weight:800;
+      font-weight: 700;
     }
     .tag-option .tag-checkbox {
-      position: absolute; left:11px; width:1rem;height:1rem;
-      background: none; border:1.5px solid #18c7b3; border-radius:3px;
+      position: absolute;
+      left: 10px;
+      width: 1rem;
+      height: 1rem;
+      background: none;
+      border: 1.5px solid #18c7b3;
+      border-radius: 3px;
+      transition: all 0.2s;
     }
     .tag-option.selected .tag-checkbox {
-      border:1.5px solid #fff;background:#18c7b3;
+      border: 1.5px solid #fff;
+      background: #18c7b3;
     }
+
     .form-checkbox {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 10px;
-      font-size: 1.02rem;
+      font-size: 0.95rem;
       margin-top: 10px;
       margin-bottom: 8px;
-      line-height: 1.25;
+      line-height: 1.4;
     }
     .form-checkbox input[type=checkbox] {
-      margin: 0;
+      margin: 3px 0 0 0;
       accent-color: #166efa;
-      width: 1.25em;
-      height: 1.25em;
+      width: 1.2em;
+      height: 1.2em;
       flex-shrink: 0;
+      cursor: pointer;
     }
     .form-checkbox label {
       display: inline-block;
@@ -168,11 +361,56 @@
       margin: 0;
       flex: 1;
       cursor: pointer;
+      font-size: 0.95rem;
     }
+
     button[type=submit] {
-      background:linear-gradient(90deg,#166efa,#1ad9e6 94%);
-      color:#fff;font-weight:800;font-size:1.17rem;padding:14px 0;width:100%;
-      border: none; border-radius:15px; cursor:pointer;
+      background: linear-gradient(90deg, #166efa, #1ad9e6 94%);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.15rem;
+      padding: 16px 0;
+      width: 100%;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(22, 110, 250, 0.3);
+    }
+    button[type=submit]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(22, 110, 250, 0.4);
+    }
+    button[type=submit]:active {
+      transform: translateY(0);
+    }
+
+    .form-privacy {
+      text-align: center;
+      color: #5a8ab8;
+      font-size: 0.85rem;
+      margin-top: 16px;
+      padding: 0 10px;
+    }
+
+    .page-footer {
+      margin-top: 40px;
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+      padding: 0 20px;
+    }
+    .page-footer a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+
+    @media (max-width: 600px) {
+      .content-section h1 { font-size: 1.8rem; }
+      .contact-card { padding: 30px 20px; border-radius: 20px; }
+      .services-grid { grid-template-columns: 1fr; }
     }
   </style>
 <base target="_blank">
@@ -180,16 +418,54 @@
 
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <div class="anim-grad-bg"></div>
 
-<div class="contact-main">
+<main id="main-content" class="contact-wrapper">
 
-  <!-- ⭐ FORM START ⭐ -->
-  <form class="contact-card" autocomplete="off"
-        action="https://formspree.io/f/xjglwrnj"
-        method="POST">
+  <section class="content-section" aria-label="About EnergySaversCo">
+    <h1>Contact EnergySaversCo for Solar & Energy Solutions</h1>
+    <p class="lead">
+      Looking to reduce your energy bills? We specialize in solar panel installation, 
+      battery storage systems, air conditioning upgrades, and government rebate programs 
+      across Australia.
+    </p>
+    <div class="trust-badges">
+      <span class="trust-badge">&#10003; Licensed Installers</span>
+      <span class="trust-badge">&#10003; Government Rebates</span>
+      <span class="trust-badge">&#10003; 24hr Response</span>
+      <span class="trust-badge">&#10003; Free Quotes</span>
+    </div>
+  </section>
 
-    <svg class="brand-logo" viewBox="0 0 48 48">
+  <section class="services-grid" aria-label="Our Services">
+    <article class="service-card">
+      <h3>Solar Panels</h3>
+      <p>High-efficiency installations with warranty</p>
+    </article>
+    <article class="service-card">
+      <h3>Battery Storage</h3>
+      <p>Store excess energy for nighttime use</p>
+    </article>
+    <article class="service-card">
+      <h3>Air Conditioning</h3>
+      <p>Energy-efficient cooling upgrades</p>
+    </article>
+    <article class="service-card">
+      <h3>Government Rebates</h3>
+      <p>We handle all paperwork for you</p>
+    </article>
+  </section>
+
+  <form class="contact-card" 
+        autocomplete="off"
+        action="https://formspree.io/f/xjglwrnj" 
+        method="POST"
+        aria-label="Contact form">
+
+    <svg class="brand-logo" viewBox="0 0 48 48" aria-hidden="true" role="img">
+      <title>EnergySaversCo Logo</title>
       <circle cx="24" cy="24" r="22" fill="#166efa"/>
       <path d="M17 30v-6.5a7 7 0 0114 0V30" fill="none" stroke="#fff" stroke-width="2.7"/>
       <circle cx="24" cy="22.2" r="2.6" fill="#fff"/>
@@ -203,71 +479,107 @@
     </div>
 
     <div class="form-group">
-      <input type="text" name="fullname" required placeholder="Full Name">
+      <label for="fullname">Full Name <span class="required" aria-label="required">*</span></label>
+      <input type="text" id="fullname" name="fullname" required placeholder="John Smith" aria-required="true">
     </div>
 
     <div class="form-group">
-      <input type="text" name="company" placeholder="Company (if business)">
+      <label for="company">Company</label>
+      <input type="text" id="company" name="company" placeholder="Your company (if business)">
     </div>
 
     <div class="form-group">
-      <input type="tel" name="phone" required placeholder="Phone Number">
+      <label for="phone">Phone Number <span class="required" aria-label="required">*</span></label>
+      <input type="tel" id="phone" name="phone" required placeholder="04XX XXX XXX" aria-required="true">
     </div>
 
     <div class="form-group">
-      <input type="email" name="email" required placeholder="Email">
+      <label for="email">Email <span class="required" aria-label="required">*</span></label>
+      <input type="email" id="email" name="email" required placeholder="john@example.com" aria-required="true">
     </div>
 
     <div class="form-group">
-      <span class="tag-select-label">What are you interested in?</span>
-      <div class="tag-list" id="interestTags">
-        <span class="tag-option" data-value="Solar Panels & Installations">Solar Panels & Installations</span>
-        <span class="tag-option" data-value="Solar Battery Storage">Solar Battery Storage</span>
-        <span class="tag-option" data-value="Air Conditioning Upgrades">Air Conditioning Upgrades</span>
-        <span class="tag-option" data-value="Hot Water System">Hot Water System</span>
-        <span class="tag-option" data-value="Induction Cooktop">Induction Cooktop</span>
-        <span class="tag-option" data-value="Government Rebate/Program Info">Government Rebate / Program Info</span>
-        <span class="tag-option" data-value="Other / Partnership">Other / Partnership</span>
+      <span class="tag-select-label">What are you interested in? <span class="required" aria-label="required">*</span></span>
+      <div class="tag-list" id="interestTags" role="group" aria-label="Service interests">
+        <button type="button" class="tag-option" data-value="Solar Panels & Installations" aria-pressed="false">
+          <span class="tag-checkbox" aria-hidden="true"></span>
+          Solar Panels & Installations
+        </button>
+        <button type="button" class="tag-option" data-value="Solar Battery Storage" aria-pressed="false">
+          <span class="tag-checkbox" aria-hidden="true"></span>
+          Solar Battery Storage
+        </button>
+        <button type="button" class="tag-option" data-value="Air Conditioning Upgrades" aria-pressed="false">
+          <span class="tag-checkbox" aria-hidden="true"></span>
+          Air Conditioning Upgrades
+        </button>
+        <button type="button" class="tag-option" data-value="Hot Water System" aria-pressed="false">
+          <span class="tag-checkbox" aria-hidden="true"></span>
+          Hot Water System
+        </button>
+        <button type="button" class="tag-option" data-value="Induction Cooktop" aria-pressed="false">
+          <span class="tag-checkbox" aria-hidden="true"></span>
+          Induction Cooktop
+        </button>
+        <button type="button" class="tag-option" data-value="Government Rebate/Program Info" aria-pressed="false">
+          <span class="tag-checkbox" aria-hidden="true"></span>
+          Government Rebate / Program Info
+        </button>
+        <button type="button" class="tag-option" data-value="Other / Partnership" aria-pressed="false">
+          <span class="tag-checkbox" aria-hidden="true"></span>
+          Other / Partnership
+        </button>
       </div>
-      <input type="hidden" name="interest" id="selectedInterests" required>
+      <input type="hidden" name="interest" id="selectedInterests" required aria-required="true">
     </div>
 
     <div class="form-group">
-      <textarea name="message" required rows="4" placeholder="Your message or details..."></textarea>
+      <label for="message">Your Message <span class="required" aria-label="required">*</span></label>
+      <textarea id="message" name="message" required rows="4" placeholder="Tell us about your project or enquiry..." aria-required="true"></textarea>
     </div>
 
     <div class="form-checkbox">
-      <input type="checkbox" id="auth" name="authorised" required>
+      <input type="checkbox" id="auth" name="authorised" required aria-required="true">
       <label for="auth">I confirm I am authorised to make this enquiry on behalf of my business or property.</label>
     </div>
 
     <div class="form-checkbox">
-      <input type="checkbox" id="marketing" name="marketing" required>
-      <label for="marketing" class="marketing">I agree to be contacted about energy-saving upgrades and government programs.</label>
+      <input type="checkbox" id="marketing" name="marketing" required aria-required="true">
+      <label for="marketing">I agree to be contacted about energy-saving upgrades and government programs.</label>
     </div>
 
     <button type="submit">Send Message</button>
 
     <div class="form-privacy">
-      <b>Privacy:</b> Your details are secure and only used for your enquiry.
+      <strong>Privacy:</strong> Your details are secure and only used for your enquiry.
     </div>
 
   </form>
-  <!-- ⭐ FORM END ⭐ -->
 
-</div>
+  <footer class="page-footer">
+    <p>EnergySaversCo &copy; 2026 | Licensed Energy Solutions Provider</p>
+    <p>
+      <a href="/privacy">Privacy Policy</a> &bull; 
+      <a href="/terms">Terms of Service</a>
+    </p>
+  </footer>
+
+</main>
 
 <script>
-  // Tag UI logic
   const tags = document.querySelectorAll('.tag-option');
   const hiddenInput = document.getElementById('selectedInterests');
 
   function updateTags() {
-    let vals = Array.from(tags)
-      .filter(t => t.classList.contains('selected'))
-      .map(t => t.getAttribute('data-value'));
+    const selected = Array.from(tags).filter(t => t.classList.contains('selected'));
+    const vals = selected.map(t => t.getAttribute('data-value'));
     hiddenInput.value = vals.join(', ');
-    hiddenInput.setCustomValidity(vals.length ? "" : "Please select at least one interest.");
+    hiddenInput.setCustomValidity(vals.length ? '' : 'Please select at least one interest.');
+
+    selected.forEach(t => t.setAttribute('aria-pressed', 'true'));
+    tags.forEach(t => {
+      if (!t.classList.contains('selected')) t.setAttribute('aria-pressed', 'false');
+    });
   }
 
   tags.forEach(tag => {
@@ -275,18 +587,25 @@
       tag.classList.toggle('selected');
       updateTags();
     });
+
+    tag.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        tag.classList.toggle('selected');
+        updateTags();
+      }
+    });
   });
 
   updateTags();
 
-  // Form validation without blocking submission
-  document.querySelector('form').addEventListener('submit', function (e) {
+  document.querySelector('form').addEventListener('submit', function(e) {
     if (!hiddenInput.value) {
-      hiddenInput.setCustomValidity("Please select at least one interest.");
+      hiddenInput.setCustomValidity('Please select at least one interest.');
       hiddenInput.reportValidity();
       e.preventDefault();
     } else {
-      hiddenInput.setCustomValidity("");
+      hiddenInput.setCustomValidity('');
     }
   });
 </script>
