@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Thank You | EnergySaversCo</title>
+  <meta name="description" content="Thank you for contacting EnergySaversCo. We will get back to you within 24 hours with your solar, battery, or energy upgrade quote."/>
+  <meta name="robots" content="noindex, follow"/>
+  <link rel="canonical" href="https://energysaversco.com/thank-you"/>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18164934542"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-18164934542');
+
+    // Conversion tracking event
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18164934542/CONTACT_FORM_SUBMIT',
+      'value': 1.0,
+      'currency': 'AUD'
+    });
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600,700,800&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(120deg, #197fd8 0%, #84e4ff 55%, #d9f6ff 100%);
+      position: relative;
+      overflow-x: hidden;
+      color: #1a3a5c;
+      line-height: 1.6;
+    }
+    .anim-grad-bg {
+      position: fixed;
+      z-index: -2;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(135deg, #1a91ff 0%, #18c7b3 40%, #f0f5ff 100%);
+      background-size: 200% 200%;
+      animation: gradientMove 13s ease-in-out infinite;
+    }
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      40% { background-position: 100% 51%; }
+      80% { background-position: 0% 41%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .thankyou-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 2;
+      padding: 40px 20px;
+    }
+
+    .thankyou-card {
+      width: 100%;
+      max-width: 560px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 28px;
+      box-shadow: 0 18px 80px #14bcf435, 0 0 0 3px #b9e9f8, 0 0 0 1.5px #13bfdd38;
+      padding: 48px 36px 36px 36px;
+      margin: auto;
+      text-align: center;
+      backdrop-filter: blur(12px) saturate(1.3);
+      border: 1.5px solid #e2f5ff;
+      animation: slideUp 0.6s ease-out;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .checkmark-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #166efa, #18c7b3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px auto;
+      box-shadow: 0 8px 30px rgba(22, 110, 250, 0.3);
+      animation: scaleIn 0.5s ease-out 0.2s both;
+    }
+    @keyframes scaleIn {
+      from { transform: scale(0); }
+      to { transform: scale(1); }
+    }
+    .checkmark-circle svg {
+      width: 40px;
+      height: 40px;
+    }
+
+    .thankyou-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1276c5;
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+      background: linear-gradient(90deg, #166efa, #18c7b3 92%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .thankyou-subtitle {
+      font-size: 1.15rem;
+      color: #205bba;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .next-steps {
+      text-align: left;
+      background: #f4faff;
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+    .next-steps h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0e5fa7;
+      margin: 0 0 14px 0;
+    }
+    .next-steps ul {
+      margin: 0;
+      padding-left: 20px;
+      color: #1a6ca7;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+    .next-steps li {
+      margin-bottom: 4px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #1a6ca7;
+      font-size: 1rem;
+    }
+    .contact-item a {
+      color: #166efa;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(90deg, #166efa, #1ad9e6 94%);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 16px 36px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(22, 110, 250, 0.3);
+      margin-bottom: 8px;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 30px rgba(22, 110, 250, 0.4);
+    }
+
+    .secondary-link {
+      color: #5a8ab8;
+      font-size: 0.9rem;
+      text-decoration: none;
+      margin-top: 16px;
+      display: inline-block;
+    }
+    .secondary-link:hover {
+      color: #166efa;
+      text-decoration: underline;
+    }
+
+    .page-footer {
+      margin-top: 32px;
+      text-align: center;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.85rem;
+    }
+    .page-footer a {
+      color: #fff;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+
+    @media (max-width: 600px) {
+      .thankyou-card { padding: 32px 24px; border-radius: 20px; }
+      .thankyou-title { font-size: 1.7rem; }
+      .thankyou-subtitle { font-size: 1rem; }
+    }
+  </style>
+<base target="_blank">
+</head>
+
+<body>
+
+<div class="anim-grad-bg"></div>
+
+<main class="thankyou-wrapper">
+
+  <div class="thankyou-card">
+
+    <div class="checkmark-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+
+    <h1 class="thankyou-title">Thank You!</h1>
+
+    <p class="thankyou-subtitle">
+      Your enquiry has been submitted successfully. Our team will review your request 
+      and get back to you within <strong>24 hours</strong>.
+    </p>
+
+    <div class="next-steps">
+      <h3>What happens next?</h3>
+      <ul>
+        <li>We will call you on <strong>+61 452 300 883</strong> to discuss your needs</li>
+        <li>We will assess your property for the best energy solutions</li>
+        <li>You will receive a detailed, no-obligation quote</li>
+        <li>We help you apply for available government rebates</li>
+      </ul>
+    </div>
+
+    <div class="contact-info">
+      <div class="contact-item">
+        <span>&#128222;</span>
+        <a href="tel:+61452300883">+61 452 300 883</a>
+      </div>
+      <div class="contact-item">
+        <span>&#128231;</span>
+        <a href="mailto:info@energysaversco.com">info@energysaversco.com</a>
+      </div>
+    </div>
+
+    <a href="/" class="cta-button">Back to Homepage</a>
+    <br>
+    <a href="/services" class="secondary-link">Explore Our Services &rarr;</a>
+
+  </div>
+
+  <footer class="page-footer">
+    <p>EnergySaversCo &copy; 2026 | Licensed Energy Solutions Provider</p>
+    <p>
+      <a href="/privacy">Privacy Policy</a> &bull; 
+      <a href="/terms">Terms of Service</a>
+    </p>
+  </footer>
+
+</main>
+
+</body>
+</html>
