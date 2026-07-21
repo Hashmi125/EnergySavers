@@ -6,22 +6,22 @@
 
   <!-- SEO Essentials -->
   <title>Contact EnergySaversCo | Solar & Energy Solutions Australia</title>
-  <meta name="description" content="Contact EnergySaversCo for solar panel installation, battery storage, air conditioning upgrades, hot water systems, and government rebate programs. Get a free quote today."/>
-  <meta name="keywords" content="solar panels, battery storage, air conditioning, hot water system, induction cooktop, government rebate, energy savings, contact"/>
+  <meta name="description" content="Contact EnergySaversCo for solar panel installation, battery storage, air conditioning upgrades, hot water systems, and government rebate programs in Melbourne, Geelong, Ballarat and across Victoria. Get a free quote today."/>
+  <meta name="keywords" content="solar panels, battery storage, air conditioning, hot water system, induction cooktop, government rebate, energy savings, contact, Melbourne, Victoria"/>
   <meta name="robots" content="index, follow"/>
-  <link rel="canonical" href="https://energysaversco.com/contact"/>
+  <link rel="canonical" href="https://energysaversco.com/contact.html"/>
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://energysaversco.com/contact"/>
+  <meta property="og:url" content="https://energysaversco.com/contact.html"/>
   <meta property="og:title" content="Contact EnergySaversCo | Solar & Energy Solutions"/>
-  <meta property="og:description" content="Get in touch for solar panel installation, battery storage, air conditioning upgrades, and government rebate programs."/>
+  <meta property="og:description" content="Get in touch for solar panel installation, battery storage, air conditioning upgrades, and government rebate programs across Victoria."/>
   <meta property="og:image" content="https://energysaversco.com/assets/og-image.jpg"/>
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Contact EnergySaversCo | Solar & Energy Solutions"/>
-  <meta name="twitter:description" content="Get in touch for solar panel installation, battery storage, and government rebate programs."/>
+  <meta name="twitter:description" content="Get in touch for solar panel installation, battery storage, and government rebate programs across Victoria."/>
   <meta name="twitter:image" content="https://energysaversco.com/assets/og-image.jpg"/>
 
   <!-- Schema.org LocalBusiness Structured Data -->
@@ -30,14 +30,16 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "EnergySaversCo",
-    "description": "Energy solutions provider specializing in solar panels, battery storage, air conditioning upgrades, hot water systems, and induction cooktops.",
+    "description": "Energy solutions provider specializing in solar panels, battery storage, air conditioning upgrades, hot water systems, and induction cooktops across Victoria, Australia.",
     "url": "https://energysaversco.com",
     "telephone": "+61452300883",
     "email": "info@energysaversco.com",
     "address": {
       "@type": "PostalAddress",
-      "addressCountry": "AU"
+      "addressCountry": "AU",
+      "addressRegion": "Victoria"
     },
+    "areaServed": ["Melbourne", "Geelong", "Ballarat", "Bendigo", "Victoria"],
     "serviceType": [
       "Solar Panel Installation",
       "Battery Storage Systems",
@@ -117,6 +119,7 @@
       padding: 40px 20px;
     }
 
+    /* Content Section */
     .content-section {
       max-width: 800px;
       width: 100%;
@@ -157,6 +160,7 @@
       font-weight: 600;
     }
 
+    /* Services Grid */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -191,6 +195,98 @@
       opacity: 0.9;
     }
 
+    /* ===== WHY CHOOSE US SECTION ===== */
+    .why-us {
+      max-width: 520px;
+      width: 100%;
+      margin: 32px auto;
+      text-align: center;
+    }
+    .why-us h2 {
+      color: #fff;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .why-item {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 14px;
+      padding: 20px;
+      color: #fff;
+      transition: transform 0.2s;
+    }
+    .why-item:hover {
+      transform: translateY(-4px);
+      background: rgba(255,255,255,0.22);
+    }
+    .why-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .why-item div:last-child {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    /* ===== HOW IT WORKS SECTION ===== */
+    .process-section {
+      max-width: 520px;
+      width: 100%;
+      margin: 32px auto;
+    }
+    .process-section h2 {
+      text-align: center;
+      color: #fff;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .process-card {
+      background: rgba(255,255,255,0.88);
+      border-radius: 16px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+      border: 1.5px solid #e2f5ff;
+    }
+    .process-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .process-step:last-child {
+      margin-bottom: 0;
+    }
+    .step-number {
+      background: linear-gradient(135deg, #166efa, #18c7b3);
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      flex-shrink: 0;
+      font-size: 0.9rem;
+    }
+    .step-title {
+      font-weight: 700;
+      color: #0e5fa7;
+    }
+    .step-desc {
+      color: #1a6ca7;
+      font-size: 0.95rem;
+    }
+
+    /* ===== CONTACT FORM CARD ===== */
     .contact-card {
       width: 100%;
       max-width: 520px;
@@ -198,7 +294,7 @@
       border-radius: 28px;
       box-shadow: 0 18px 80px #14bcf435, 0 0 0 3px #b9e9f8, 0 0 0 1.5px #13bfdd38;
       padding: 40px 32px 32px 32px;
-      margin: auto;
+      margin: 32px auto;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -420,23 +516,234 @@
       padding: 0 10px;
     }
 
+    /* ===== FAQ SECTION ===== */
+    .faq-section {
+      max-width: 520px;
+      width: 100%;
+      margin: 32px auto;
+    }
+    .faq-section h2 {
+      text-align: center;
+      color: #fff;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .faq-card {
+      background: rgba(255,255,255,0.88);
+      border-radius: 16px;
+      padding: 24px;
+      backdrop-filter: blur(10px);
+      border: 1.5px solid #e2f5ff;
+    }
+    details {
+      margin-bottom: 12px;
+      border-bottom: 1px solid #e2f5ff;
+      padding-bottom: 12px;
+    }
+    details:last-child {
+      margin-bottom: 0;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    summary {
+      font-weight: 700;
+      color: #0e5fa7;
+      cursor: pointer;
+      font-size: 0.95rem;
+      list-style: none;
+      position: relative;
+      padding-right: 24px;
+    }
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    summary::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: #166efa;
+      transition: transform 0.2s;
+    }
+    details[open] summary::after {
+      content: '−';
+    }
+    details p {
+      color: #1a6ca7;
+      margin-top: 8px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
     .page-footer {
       margin-top: 40px;
       text-align: center;
-      color: rgba(255,255,255,0.7);
-      font-size: 0.85rem;
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
       padding: 0 20px;
+      max-width: 520px;
+      width: 100%;
     }
-    .page-footer a {
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    }
+    .social-links a:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+    .social-links .facebook {
+      background: #1877F2;
+      color: #fff;
+    }
+    .social-links .instagram {
+      background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      color: #fff;
+    }
+    .social-links .email {
+      background: linear-gradient(135deg, #166efa, #18c7b3);
+      color: #fff;
+    }
+    .social-links svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .legal-links {
+      margin-bottom: 12px;
+    }
+    .legal-links a {
       color: #fff;
       text-decoration: none;
       border-bottom: 1px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .legal-links a:hover {
+      border-bottom-color: #fff;
+    }
+    .copyright {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
     }
 
+    /* ===== MODAL / CARD OVERLAY ===== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      backdrop-filter: blur(4px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active {
+      display: flex;
+    }
+    .modal-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 24px;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.2), 0 0 0 3px #b9e9f8;
+      padding: 36px 32px 28px 32px;
+      max-width: 520px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      position: relative;
+      animation: modalSlideIn 0.3s ease-out;
+      border: 1.5px solid #e2f5ff;
+    }
+    @keyframes modalSlideIn {
+      from { opacity: 0; transform: translateY(30px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: #f4faff;
+      color: #0e5fa7;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .modal-close:hover {
+      background: #e2f5ff;
+    }
+    .modal-card h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #1276c5;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, #166efa, #18c7b3 92%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .modal-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0e5fa7;
+      margin: 20px 0 8px 0;
+    }
+    .modal-card p, .modal-card li {
+      color: #1a6ca7;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0 0 8px 0;
+    }
+    .modal-card ul {
+      padding-left: 20px;
+      margin: 0 0 12px 0;
+    }
+    .modal-card li {
+      margin-bottom: 4px;
+    }
+    .modal-card a {
+      color: #166efa;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .modal-card a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
     @media (max-width: 600px) {
       .content-section h1 { font-size: 1.8rem; }
-      .contact-card { padding: 30px 20px; border-radius: 20px; }
-      .services-grid { grid-template-columns: 1fr; }
+      .contact-card, .faq-card, .process-card, .modal-card { padding: 24px 20px; border-radius: 20px; }
+      .services-grid, .why-grid { grid-template-columns: 1fr; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .modal-card { max-height: 85vh; padding: 28px 20px 20px 20px; }
     }
   </style>
 <base target="_blank">
@@ -450,12 +757,13 @@
 
 <main id="main-content" class="contact-wrapper">
 
+  <!-- HERO / INTRO -->
   <section class="content-section" aria-label="About EnergySaversCo">
     <h1>Contact EnergySaversCo for Solar & Energy Solutions</h1>
     <p class="lead">
       Looking to reduce your energy bills? We specialize in solar panel installation, 
       battery storage systems, air conditioning upgrades, and government rebate programs 
-      across Australia.
+      across <strong>Melbourne, Geelong, Ballarat, Bendigo and all of Victoria</strong>.
     </p>
     <div class="trust-badges">
       <span class="trust-badge">&#10003; Licensed Installers</span>
@@ -465,6 +773,7 @@
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section class="services-grid" aria-label="Our Services">
     <article class="service-card">
       <h3>Solar Panels</h3>
@@ -484,6 +793,65 @@
     </article>
   </section>
 
+  <!-- WHY CHOOSE US -->
+  <section class="why-us" aria-label="Why Choose Us">
+    <h2>Why Choose EnergySaversCo?</h2>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">&#127942;</div>
+        <div>5+ Years Experience</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">&#128176;</div>
+        <div>$2M+ Rebates Claimed</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">&#11088;</div>
+        <div>4.9/5 Customer Rating</div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">&#128737;</div>
+        <div>Fully Licensed & Insured</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="process-section" aria-label="How It Works">
+    <h2>How It Works</h2>
+    <div class="process-card">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <div>
+          <div class="step-title">Submit Your Enquiry</div>
+          <div class="step-desc">Fill out the form below with your details and energy needs.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <div>
+          <div class="step-title">Free Phone Consultation</div>
+          <div class="step-desc">We call you within 24 hours to discuss your requirements.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <div>
+          <div class="step-title">On-Site Assessment</div>
+          <div class="step-desc">We visit your property to assess the best energy solutions.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-number">4</div>
+        <div>
+          <div class="step-title">Installation & Rebates</div>
+          <div class="step-desc">Professional installation with all government rebate paperwork handled.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
   <form class="contact-card" 
         autocomplete="off"
         action="https://formspree.io/f/xjglwrnj" 
@@ -586,15 +954,147 @@
 
   </form>
 
+  <!-- FAQ SECTION -->
+  <section class="faq-section" aria-label="Frequently Asked Questions">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-card">
+      <details>
+        <summary>How soon will I get a quote?</summary>
+        <p>We typically respond within <strong>24 hours</strong> with a preliminary assessment. A detailed quote follows after a free on-site inspection.</p>
+      </details>
+      <details>
+        <summary>Am I eligible for government rebates?</summary>
+        <p>Most Victorian households and businesses qualify for <strong>VEU rebates</strong>. We handle all paperwork — just provide your details and we'll check your eligibility.</p>
+      </details>
+      <details>
+        <summary>Do you service my area?</summary>
+        <p>We cover all of <strong>Victoria</strong> including Melbourne, Geelong, Ballarat, Bendigo, and surrounding regions. Contact us to confirm availability in your suburb.</p>
+      </details>
+      <details>
+        <summary>Is there any obligation after getting a quote?</summary>
+        <p>Absolutely not. Our quotes are <strong>100% free and no-obligation</strong>. You decide if and when to proceed.</p>
+      </details>
+      <details>
+        <summary>What brands do you work with?</summary>
+        <p>We partner with leading brands including Tesla, LG, Fronius, Daikin, Mitsubishi Electric, and more. We recommend the best solution for your specific needs and budget.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="page-footer">
-    <p>EnergySaversCo &copy; 2026 | Licensed Energy Solutions Provider</p>
-    <p>
-      <a href="/privacy">Privacy Policy</a> &bull; 
-      <a href="/terms">Terms of Service</a>
-    </p>
+
+    <!-- Social Media Icons -->
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/18839zvRJu/" target="_blank" rel="noopener noreferrer" class="facebook" title="Facebook" aria-label="Visit our Facebook page">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </a>
+      <a href="https://www.instagram.com/energysaversco" target="_blank" rel="noopener noreferrer" class="instagram" title="Instagram" aria-label="Visit our Instagram page">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+      </a>
+      <a href="mailto:info@energysaversco.com" class="email" title="Email Us" aria-label="Send us an email">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Legal Links (open modal cards) -->
+    <div class="legal-links">
+      <a onclick="openModal('privacy')">Privacy Policy</a> &bull; 
+      <a onclick="openModal('terms')">Terms of Service</a>
+    </div>
+
+    <div class="copyright">EnergySaversCo &copy; 2026 | Licensed Energy Solutions Provider</div>
   </footer>
 
 </main>
+
+<!-- ===== MODAL CARDS ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+
+  <!-- Privacy Policy Modal -->
+  <div class="modal-card" id="privacyModal" style="display:none;" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close privacy policy">&times;</button>
+    <h2>Privacy Policy</h2>
+
+    <p><strong>Last updated:</strong> July 2026</p>
+
+    <h3>1. Information We Collect</h3>
+    <p>When you submit our contact form, we collect your name, phone number, email address, company name (if provided), and details about your energy needs and interests.</p>
+
+    <h3>2. How We Use Your Information</h3>
+    <ul>
+      <li>To respond to your enquiry and provide quotes</li>
+      <li>To assess your eligibility for government rebates</li>
+      <li>To arrange on-site inspections and installations</li>
+      <li>To send you updates about energy-saving programs (only if you opted in)</li>
+    </ul>
+
+    <h3>3. Information Sharing</h3>
+    <p>We do not sell, trade, or rent your personal information to third parties. We may share your information with:</p>
+    <ul>
+      <li>Accredited installers working on your project</li>
+      <li>Government bodies for rebate applications (with your consent)</li>
+      <li>Service providers who assist our operations (under confidentiality agreements)</li>
+    </ul>
+
+    <h3>4. Data Security</h3>
+    <p>We implement appropriate security measures to protect your personal information from unauthorized access, alteration, or disclosure.</p>
+
+    <h3>5. Your Rights</h3>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Access the personal information we hold about you</li>
+      <li>Request correction of inaccurate information</li>
+      <li>Request deletion of your personal information</li>
+      <li>Opt out of marketing communications at any time</li>
+    </ul>
+
+    <h3>6. Contact Us</h3>
+    <p>For any privacy-related questions, please contact us at <a href="mailto:info@energysaversco.com">info@energysaversco.com</a> or call <a href="tel:+61452300883">+61 452 300 883</a>.</p>
+  </div>
+
+  <!-- Terms of Service Modal -->
+  <div class="modal-card" id="termsModal" style="display:none;" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close terms of service">&times;</button>
+    <h2>Terms of Service</h2>
+
+    <p><strong>Last updated:</strong> July 2026</p>
+
+    <h3>1. Acceptance of Terms</h3>
+    <p>By using our website and submitting an enquiry, you agree to these Terms of Service. If you do not agree, please do not use our services.</p>
+
+    <h3>2. Our Services</h3>
+    <p>EnergySaversCo provides energy-saving solutions including solar panel installation, battery storage systems, air conditioning upgrades, hot water systems, and assistance with government rebate programs across Victoria, Australia.</p>
+
+    <h3>3. Quotes and Estimates</h3>
+    <p>All quotes provided are estimates based on the information you supply. Final pricing may vary after an on-site assessment. Quotes are valid for 30 days unless otherwise stated.</p>
+
+    <h3>4. Government Rebates</h3>
+    <p>Eligibility for government rebates (including VEU) is determined by government authorities, not by EnergySaversCo. We assist with applications but cannot guarantee approval or specific rebate amounts.</p>
+
+    <h3>5. Installation and Warranties</h3>
+    <p>All installations are performed by licensed and accredited professionals. Product warranties are provided by manufacturers. Installation workmanship is covered by our own warranty terms, provided at the time of service.</p>
+
+    <h3>6. Cancellations and Refunds</h3>
+    <p>Cancellation policies and refund terms will be provided in your individual service agreement. Deposit refunds are subject to the terms outlined in your signed contract.</p>
+
+    <h3>7. Limitation of Liability</h3>
+    <p>To the maximum extent permitted by law, EnergySaversCo is not liable for any indirect, incidental, or consequential damages arising from the use of our services.</p>
+
+    <h3>8. Changes to Terms</h3>
+    <p>We may update these terms from time to time. Continued use of our services after changes constitutes acceptance of the new terms.</p>
+
+    <h3>9. Contact</h3>
+    <p>For questions about these terms, contact us at <a href="mailto:info@energysaversco.com">info@energysaversco.com</a> or <a href="tel:+61452300883">+61 452 300 883</a>.</p>
+  </div>
+
+</div>
 
 <script>
   // ===================== TAG SELECTION =====================
@@ -633,51 +1133,79 @@
   // ===================== FORM SUBMISSION WITH FETCH API =====================
   const form = document.getElementById('contactForm');
   const submitBtn = document.getElementById('submitBtn');
-
-  // CHANGE THIS to your actual thank-you page URL
   const THANK_YOU_URL = 'thank-you.html';
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Validate tags
     if (!hiddenInput.value) {
       hiddenInput.setCustomValidity('Please select at least one interest.');
       hiddenInput.reportValidity();
       return;
     }
 
-    // Show loading state
     submitBtn.disabled = true;
     submitBtn.classList.add('loading');
 
-    // Collect form data
     const formData = new FormData(form);
 
-    // Submit to Formspree via fetch API (AJAX)
     fetch(form.action, {
       method: 'POST',
       body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
+      headers: { 'Accept': 'application/json' }
     })
     .then(response => {
       if (response.ok) {
-        // SUCCESS: Form submitted to Formspree + redirect to thank-you page
         window.location.href = THANK_YOU_URL;
       } else {
         throw new Error('Form submission failed');
       }
     })
     .catch(error => {
-      // Reset button
       submitBtn.disabled = false;
       submitBtn.classList.remove('loading');
-
       alert('Something went wrong. Please try again or call us at +61 452 300 883.');
       console.error('Error:', error);
     });
+  });
+
+  // ===================== MODAL FUNCTIONS =====================
+  function openModal(type) {
+    const overlay = document.getElementById('modalOverlay');
+    const privacyModal = document.getElementById('privacyModal');
+    const termsModal = document.getElementById('termsModal');
+
+    privacyModal.style.display = 'none';
+    termsModal.style.display = 'none';
+
+    if (type === 'privacy') {
+      privacyModal.style.display = 'block';
+    } else if (type === 'terms') {
+      termsModal.style.display = 'block';
+    }
+
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(event) {
+    if (event && event.target !== document.getElementById('modalOverlay') && event.target.closest('.modal-close') === null) {
+      return;
+    }
+
+    const overlay = document.getElementById('modalOverlay');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+
+    setTimeout(() => {
+      document.getElementById('privacyModal').style.display = 'none';
+      document.getElementById('termsModal').style.display = 'none';
+    }, 300);
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
   });
 </script>
 
